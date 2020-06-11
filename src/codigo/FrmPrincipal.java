@@ -26,6 +26,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public FrmPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,90 +38,136 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtEntrada = new javax.swing.JTextField();
-        btnAnalizar = new javax.swing.JButton();
-        txtResultado = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Entrada2txt = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Salidatxt = new javax.swing.JTextArea();
+        btnAnalizar1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Salidatxt1 = new javax.swing.JTextArea();
+        btnAnalizar2 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtEntrada.addActionListener(new java.awt.event.ActionListener() {
+        Entrada2txt.setColumns(20);
+        Entrada2txt.setRows(5);
+        jScrollPane1.setViewportView(Entrada2txt);
+
+        Salidatxt.setColumns(20);
+        Salidatxt.setRows(5);
+        jScrollPane2.setViewportView(Salidatxt);
+
+        btnAnalizar1.setText("Analizar");
+        btnAnalizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaActionPerformed(evt);
+                btnAnalizar1ActionPerformed(evt);
             }
         });
 
-        btnAnalizar.setText("Analizar");
-        btnAnalizar.addActionListener(new java.awt.event.ActionListener() {
+        Salidatxt1.setColumns(20);
+        Salidatxt1.setRows(5);
+        jScrollPane3.setViewportView(Salidatxt1);
+
+        btnAnalizar2.setText("Analizar");
+        btnAnalizar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnalizarActionPerformed(evt);
+                btnAnalizar2ActionPerformed(evt);
             }
         });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane4.setViewportView(jTextArea1);
+
+        jLabel1.setText("Analizador Lexico");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                    .addComponent(txtResultado))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(btnAnalizar2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAnalizar1)
+                        .addGap(154, 154, 154))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(193, 193, 193)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(btnAnalizar)
+                .addGap(343, 343, 343)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAnalizar)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnalizar1)
+                    .addComponent(btnAnalizar2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaActionPerformed
-
-    private void btnAnalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizarActionPerformed
-        File archivo = new File("archivo.txt");
+    private void btnAnalizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizar1ActionPerformed
+                File archivo = new File("Entrada2.txt");
+        
         PrintWriter escribir;
         try {
             escribir = new PrintWriter(archivo);
-            escribir.print(txtEntrada.getText());
+            escribir.print(Entrada2txt.getText());
             escribir.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
-            Reader lector = new BufferedReader(new FileReader("archivo.txt"));
+            Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
-            String resultado = "";
+            String resultado = "Token         Lexema\n"+"";
             while (true) {
                 Tokens tokens = lexer.yylex();
                 if (tokens == null) {
                     resultado += "FIN";
-                    txtResultado.setText(resultado);
+                    Salidatxt.setText(resultado);
                     return;
                 }
                 switch (tokens) {
                     case ERROR:
                     resultado += "Simbolo no definido\n";
                     break;
-                    case ID: case CNE: case Reservadas: case DEL:
-                    resultado += lexer.lexeme + ": Es un " + tokens + "\n";
-                    break;
                     default:
-                    resultado += "Token: " + tokens + "\n";
+                    resultado += tokens + "               " + lexer.lexeme + "\n";
                     break;
                 }
             }
@@ -129,7 +176,48 @@ public class FrmPrincipal extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnAnalizarActionPerformed
+    }//GEN-LAST:event_btnAnalizar1ActionPerformed
+
+    private void btnAnalizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizar2ActionPerformed
+        File archivo = new File("Tokens.txt");
+        
+        PrintWriter escribir;
+        try {
+            escribir = new PrintWriter(archivo);
+            escribir.print(Entrada2txt.getText());
+            escribir.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            Reader lector = new BufferedReader(new FileReader("Tokens.txt"));
+            Lexer lexer = new Lexer(lector);
+            String resultado = "";
+            while (true) {
+                Tokens tokens = lexer.yylex();
+                if (tokens == null) {
+                    resultado += "FIN";
+                    Salidatxt1.setText(resultado);
+                    return;
+                }
+                switch (tokens) {
+                    case ERROR:
+                    resultado += "Simbolo no definido\n";
+                    break;
+                    case SEP:
+                    resultado += tokens + "\n";
+                    default:
+                    resultado += tokens + " ";
+                    break;
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAnalizar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,8 +255,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnalizar;
-    private javax.swing.JTextField txtEntrada;
-    private javax.swing.JTextField txtResultado;
+    private javax.swing.JTextArea Entrada2txt;
+    private javax.swing.JTextArea Salidatxt;
+    private javax.swing.JTextArea Salidatxt1;
+    private javax.swing.JButton btnAnalizar1;
+    private javax.swing.JButton btnAnalizar2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

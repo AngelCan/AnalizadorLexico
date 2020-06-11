@@ -12,6 +12,8 @@ package codigo;
 public enum Tokens {
     Reservadas,
     AS,
+    SEP,
+    OA,
     Suma,
     Resta,
     Multiplicacion,

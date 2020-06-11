@@ -3,8 +3,8 @@ import static codigo.Tokens.*;
 %%
 %class Lexer
 %type Tokens
-A=[a-zA-Z]+
-B=[ ,\t,\r,\n]+
+A=[a-zA-Z]
+B=[ ,\n,\r,\n]+
 C=[(]
 D=[)]
 E=[;]
@@ -13,7 +13,7 @@ G=[=]
 H=[]
 I=[0-9]+
 J=[.]
-K=[a-zA-Z_0-9]+
+K=[a-zA-Z_0-9]*
 %{
     public String lexeme;
 %}
@@ -32,12 +32,15 @@ while {lexeme=yytext(); return Reservadas;}
 {B} {/*Ignore*/}
 "//".* {/*Ignore*/}
 "=" {return AS;}
-"+" {return Suma;}
-"-" {return Resta;}
-"*" {return Multiplicacion;}
-"/" {return Division;}
-C|
-D {lexeme=yytext(); return DEL;}
+"+" |
+"-" |
+"*" |
+"/" {return OA;}
+{C}|
+{D} {lexeme=yytext(); return DEL;}
+
+{E}|
+{F} {lexeme=yytext(); return SEP;}
 
 {A}{K} {lexeme=yytext(); return ID;}
 {I}|
