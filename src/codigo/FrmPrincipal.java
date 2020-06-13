@@ -140,7 +140,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnalizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizar1ActionPerformed
-                File archivo = new File("Entrada2.txt");
+        File archivo = new File("Entrada2.txt");
         
         PrintWriter escribir;
         try {
@@ -164,7 +164,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 }
                 switch (tokens) {
                     case ERROR:
-                    resultado += "Simbolo no definido\n";
+                    resultado += tokens + "               " + lexer.lexeme + "linea" + "Descripcion" + "\n";
                     break;
                     default:
                     resultado += tokens + "               " + lexer.lexeme + "\n";

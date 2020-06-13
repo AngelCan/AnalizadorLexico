@@ -11,6 +11,10 @@ package codigo;
  */
 public enum Tokens {
     Reservadas,
+    TD,
+    IC,
+    IR,
+    OR,
     AS,
     SEP,
     OA,

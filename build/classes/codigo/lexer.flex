@@ -25,10 +25,14 @@ char|
 long|
 string | 
 boolean | 
-int |
+int {lexeme=yytext(); return TD;}
 if |
 else |
-while {lexeme=yytext(); return Reservadas;}
+switch|
+case {lexeme=yytext(); return IC;}
+for|
+do|
+while {lexeme=yytext(); return IR;}
 {B} {/*Ignore*/}
 "//".* {/*Ignore*/}
 "=" {return AS;}
@@ -45,4 +49,11 @@ while {lexeme=yytext(); return Reservadas;}
 {A}{K} {lexeme=yytext(); return ID;}
 {I}|
 {I}"."{I} {lexeme=yytext(); return CNE;}
- . {return ERROR;}
+
+"!="|
+"<="|
+">="|
+"<"|
+">" {lexeme=yytext(); return OR;}
+
+.  return ERROR;
