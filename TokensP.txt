@@ -1,2 +1,5 @@
-hola soy;hola
-una prueba
+while
+while do
+if
+else
+if else

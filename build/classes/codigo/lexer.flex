@@ -85,6 +85,104 @@ while {lexeme=yytext(); return IR;}
 {E}{E} {lexeme=yytext(); return ERROR16;}
 
 
+"int int"|
+"int boolean"|
+"int string"|
+"int long"|
+"int char"|
+"int void"|
+"int float"|
+"int double"|
+"boolean int"|
+"boolean boolean"|
+"boolean string"|
+"boolean long"|
+"boolean char"|
+"boolean void"|
+"boolean float"|
+"boolean double"|
+"string int"|
+"string boolean"|
+"string string"|
+"string long"|
+"string char"|
+"string void"|
+"string float"|
+"string double"|
+"long int"|
+"long boolean"|
+"long string"|
+"long long"|
+"long char"|
+"long void"|
+"long float"|
+"long double"|
+"char int"|
+"char boolean"|
+"char string"|
+"char long"|
+"char char"|
+"char void"|
+"char float"|
+"char double"|
+"void int"|
+"void boolean"|
+"void string"|
+"void long"|
+"void char"|
+"void void"|
+"void float"|
+"void double"|
+"float int"|
+"float boolean"|
+"float string"|
+"float long"|
+"float char"|
+"float void"|
+"float float"|
+"float double"|
+"double int"|
+"double boolean"|
+"double string"|
+"double long"|
+"double char"|
+"double void"|
+"double float"|
+"double double" {lexeme=yytext(); return ERROR17;}
+
+"!= <="|
+"!= >="|
+"< !="|
+"> !="|
+"< <=" {lexeme=yytext(); return ERROR18;}
+
+"if if" |
+"if else" |
+"if switch"|
+"if case"|
+"else if" |
+"else else" |
+"else switch"|
+"else case"|
+"switch if" |
+"switch else" |
+"switch switch"|
+"switch case"
+"case if" |
+"case else" |
+"case switch"|
+"case case"   {lexeme=yytext(); return ERROR19;}
+
+"for for"|
+"for do"|
+"for while"
+"do for"|
+"do do"|
+"do while"
+"while for"|
+"while do"|
+"while while" {lexeme=yytext(); return ERROR20;}
+
 "boolean"{A}{K} {lexeme=yytext(); return ER1;}
 {A}{K}{G}({I}|{I}"."{I}|{A}{K})(H({I}|{I}"."{I}|{A}{K}))*{E} {lexeme=yytext(); return ER2;}
 

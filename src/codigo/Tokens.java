@@ -44,5 +44,9 @@ public enum Tokens {
     ERRROR13,
     ERROR14,
     ERROR15,
-    ERROR16
+    ERROR16,
+    ERROR17, 
+    ERROR18,
+    ERROR19,
+    ERROR20
 }
