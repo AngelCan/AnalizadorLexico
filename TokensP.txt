@@ -1,5 +1,2 @@
-while
-while do
-if
-else
-if else
+int = 9;
+int int => != 9.

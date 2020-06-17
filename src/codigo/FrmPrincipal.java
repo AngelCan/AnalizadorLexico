@@ -50,6 +50,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Prueba = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +65,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         Salidatxt.setRows(5);
         jScrollPane2.setViewportView(Salidatxt);
 
-        btnAnalizar1.setText("Analizar");
+        btnAnalizar1.setText("Mostrar Tabla de simbolos");
         btnAnalizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnalizar1ActionPerformed(evt);
@@ -85,66 +89,93 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Analizador Lexico");
 
-        jButton1.setText("Prueba");
+        jButton1.setText("Mostrar Tabla de error");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel2.setText("Escriba lo que desea analizar aquí");
+
+        jLabel3.setText("Tabla de tokens");
+
+        jLabel4.setText("Tabla de simbolos");
+
+        jLabel5.setText("Tabla de error");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(btnAnalizar2)
-                        .addGap(171, 171, 171)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAnalizar1)
-                        .addGap(154, 154, 154))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(193, 193, 193)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(343, 343, 343)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(427, 427, 427)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAnalizar2)
+                        .addGap(120, 120, 120)
+                        .addComponent(jButton1)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnAnalizar1)))
+                .addGap(221, 221, 221))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(122, 122, 122))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(388, 388, 388)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(451, 451, 451)
+                        .addComponent(jLabel5)))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAnalizar1)
-                    .addComponent(btnAnalizar2)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnAnalizar1)
+                    .addComponent(btnAnalizar2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -174,9 +205,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     return;
                 }
                 switch (tokens) {
-                    case ERROR:
-                    resultado += tokens + "               " + lexer.lexeme + "linea" + "Descripcion" + "\n";
-                    break;
+
                     case JPM:
                     resultado += "\n";
                     break;
@@ -249,7 +278,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         try {
             Reader lector = new BufferedReader(new FileReader("TokensP.txt"));
             Lexer lexer = new Lexer(lector);
-            String resultado = "";
+            String resultado = "TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION\n";
             while (true) {
                 Tokens tokens = lexer.yylex();
                 
@@ -267,24 +296,68 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "\n";
                     break;
                     case OA:
-                    int cont = 0;
-                    for(int i = 0; i == 0; i++){
-                    if(tokens != null){
-                    i ++;
-                    }
-                    cont ++;
-                    resultado += tokens + "               " + lexer.lexeme + cont;}
-                    //resultado += tokens + " ";
+                       resultado += " ";
                     break;
-                    case ER1:
-                        resultado += tokens + "prueba1";
+                    case ERROR1:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "ID incorrecto\n";
                         break;
-                    case ER2:
-                        resultado += tokens + "prueba";
+                    case ERROR2:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto\n";
                         break;
-                    default:
-                    resultado += tokens + " ";
-                    break;
+                    case ERROR3:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "ID incorrecto\n";
+                        break;
+                    case ERROR4:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto, FALTA UN NUMERO AL INICIO\n";
+                        break;
+                    case ERROR5:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto, FALTA UN NUMERO AL FINAL\n";
+                        break;
+                    case ERROR6:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos puntos seguidos\n";
+                        break;
+                    case ERROR7:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de separadores incorrecto\n";
+                        break;
+                    case ERROR8:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de separadores incorrecto\n";
+                        break;
+                    case ERROR9:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
+                        break;
+                    case ERROR10:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
+                        break;
+                    case ERROR11:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
+                        break;
+                    case ERROR12:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmatticos incorrectos\n";
+                        break;
+                    case ERRROR13:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmatticos incorrectos\n";
+                        break;    
+                    case ERROR14:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmatticos incorrectos\n";
+                        break;
+                    case ERROR15:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Uso incorrecto del separador\n";
+                        break;
+                    case ERROR16:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Uso incorrecto del separador\n";
+                        break;
+                    case ERROR17:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos tipos de datos juntos\n";
+                        break;
+                    case ERROR18:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores relacionaes incorrectos\n";
+                        break;
+                    case ERROR19:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos IR juntos\n";
+                        break;
+                    case ERROR20:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos IC juntos\n";
+                        break;
                 }
             }
         } catch (FileNotFoundException ex) {
@@ -338,6 +411,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAnalizar2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
