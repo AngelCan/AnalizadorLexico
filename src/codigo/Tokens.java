@@ -11,6 +11,9 @@ package codigo;
  */
 public enum Tokens {
     Reservadas,
+    JPM,
+    ER1,
+    ER2,
     TD,
     IC,
     IR,
@@ -25,5 +28,21 @@ public enum Tokens {
     ID,
     CNE,
     DEL,
-    ERROR
+    ERROR,
+    ERROR1,
+    ERROR2,
+    ERROR3,
+    ERROR4,
+    ERROR5,
+    ERROR6,
+    ERROR7,
+    ERROR8,
+    ERROR9,
+    ERROR10,
+    ERROR11,
+    ERROR12,
+    ERRROR13,
+    ERROR14,
+    ERROR15,
+    ERROR16
 }
