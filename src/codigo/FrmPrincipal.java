@@ -205,9 +205,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     return;
                 }
                 switch (tokens) {
-
                     case JPM:
-                    resultado += "\n";
+                        resultado += " ";
+                        break;
+                    case AS: 
+                    resultado += tokens + "               " + "=" + "\n";
                     break;
                     default:
                     resultado += tokens + "               " + lexer.lexeme + "\n";
@@ -294,70 +296,37 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     break;
                     case JPM:
                     resultado += "\n";
-                    break;
-                    case OA:
-                       resultado += " ";
-                    break;
-                    case ERROR1:
+                    break;                
+                    case ERID:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "ID incorrecto\n";
                         break;
-                    case ERROR2:
+                    case ERCNE:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto\n";
-                        break;
-                    case ERROR3:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "ID incorrecto\n";
-                        break;
-                    case ERROR4:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto, FALTA UN NUMERO AL INICIO\n";
-                        break;
-                    case ERROR5:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto, FALTA UN NUMERO AL FINAL\n";
-                        break;
-                    case ERROR6:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos puntos seguidos\n";
-                        break;
-                    case ERROR7:
+                        break;                   
+                    case ERSEP:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de separadores incorrecto\n";
-                        break;
-                    case ERROR8:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de separadores incorrecto\n";
-                        break;
-                    case ERROR9:
+                        break;                    
+                    case ERAS:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
-                        break;
-                    case ERROR10:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
-                        break;
-                    case ERROR11:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
-                        break;
-                    case ERROR12:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmatticos incorrectos\n";
-                        break;
-                    case ERRROR13:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmatticos incorrectos\n";
-                        break;    
-                    case ERROR14:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmatticos incorrectos\n";
-                        break;
-                    case ERROR15:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Uso incorrecto del separador\n";
-                        break;
-                    case ERROR16:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Uso incorrecto del separador\n";
-                        break;
-                    case ERROR17:
+                        break;                                           
+                    case EROA:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmeticos incorrectos\n";
+                        break;                                            
+                    case ERTD:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos tipos de datos juntos\n";
                         break;
-                    case ERROR18:
+                    case EROR:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores relacionaes incorrectos\n";
                         break;
-                    case ERROR19:
+                    case ERIR:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos IR juntos\n";
                         break;
-                    case ERROR20:
+                    case ERIC:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos IC juntos\n";
                         break;
+                    case ERDEL:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
+                    break;
                 }
             }
         } catch (FileNotFoundException ex) {

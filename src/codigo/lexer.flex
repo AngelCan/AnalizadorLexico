@@ -51,28 +51,35 @@ while {lexeme=yytext(); return IR;}
 {I}|
 {I}"."{I} {lexeme=yytext(); return CNE;}
 
+"=="|
 "!="|
 "<="|
 ">="|
 "<"|
 ">" {lexeme=yytext(); return OR;}
 
-{I}{K} {lexeme=yytext(); return ERROR1;}
-{I}{J}{K} {lexeme=yytext(); return ERROR2;}
-{K}{J}{I} {lexeme=yytext(); return ERROR3;}
-{J}{I} {lexeme=yytext(); return ERROR4;}
-{I}{J} {lexeme=yytext(); return ERROR5;}
-{J}{J} {lexeme=yytext(); return ERROR6;}
-{F}{E} {lexeme=yytext(); return ERROR7;}
-{F}{F} {lexeme=yytext(); return ERROR8;}
-{G}{F} {lexeme=yytext(); return ERROR9;}
-{G}{J} {lexeme=yytext(); return ERROR10;}
-{G}{H} {lexeme=yytext(); return ERROR11;}
-{H}{H} {lexeme=yytext(); return ERROR12;}
-{H}{J} {lexeme=yytext(); return ERROR13;}
-{H}{D} {lexeme=yytext(); return ERROR14;}
-{C}{F} {lexeme=yytext(); return ERROR15;}
+{J}{I}|
+{I}{J}|
+{J}{J}|
+{I}{K}|
+{I}{J}{K} {lexeme=yytext(); return ERCNE;}
+{K}|
+{I}{A}|
+{K}{J}{I} {lexeme=yytext(); return ERID;}
 
+
+{G}{F}|
+{G}{J}| 
+{G}{H} {lexeme=yytext(); return EROA;}
+
+{H}{H} |
+{H}{J} |
+{H}{D} {lexeme=yytext(); return ERAS;}
+
+{C}{F} {lexeme=yytext(); return ERDEL;}
+
+{F}{E}|
+{F}{F}|
 {E}{A}|
 {E}{C}|
 {E}{D}|
@@ -82,7 +89,7 @@ while {lexeme=yytext(); return IR;}
 {E}{I}|
 {E}{J}|
 {E}{K}|
-{E}{E} {lexeme=yytext(); return ERROR16;}
+{E}{E} {lexeme=yytext(); return ERSEP;}
 
 
 "int int"|
@@ -148,13 +155,14 @@ while {lexeme=yytext(); return IR;}
 "double char"|
 "double void"|
 "double float"|
-"double double" {lexeme=yytext(); return ERROR17;}
+"double double" {lexeme=yytext(); return ERTD;}
 
 "!= <="|
 "!= >="|
 "< !="|
 "> !="|
-"< <=" {lexeme=yytext(); return ERROR18;}
+"< <=" {lexeme=yytext(); return EROR;}
+
 
 "if if" |
 "if else" |
@@ -171,7 +179,7 @@ while {lexeme=yytext(); return IR;}
 "case if" |
 "case else" |
 "case switch"|
-"case case"   {lexeme=yytext(); return ERROR19;}
+"case case"   {lexeme=yytext(); return ERIC;}
 
 "for for"|
 "for do"|
@@ -181,7 +189,7 @@ while {lexeme=yytext(); return IR;}
 "do while"
 "while for"|
 "while do"|
-"while while" {lexeme=yytext(); return ERROR20;}
+"while while" {lexeme=yytext(); return ERIR;}
 
 "boolean"{A}{K} {lexeme=yytext(); return ER1;}
 {A}{K}{G}({I}|{I}"."{I}|{A}{K})(H({I}|{I}"."{I}|{A}{K}))*{E} {lexeme=yytext(); return ER2;}
