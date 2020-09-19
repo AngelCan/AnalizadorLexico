@@ -38,5 +38,7 @@ public enum Tokens {
     ERDEL,
     ERAS,
     EROA,
-    ERROR
+    ERROR,
+    OL, //Operador Lógico
+    value
 }
