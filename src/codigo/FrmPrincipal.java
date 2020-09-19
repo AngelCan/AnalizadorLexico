@@ -14,6 +14,8 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import codigo.Contador;
+import codigo.Semantico;
 
 /**
  *
@@ -204,6 +206,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     Salidatxt.setText(resultado);
                     return;
                 }
+                
                 switch (tokens) {
                     case JPM:
                         resultado += " ";
@@ -296,7 +299,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     break;
                     case JPM:
                     resultado += "\n";
-                    break;                
+                    break;                                                                
                     case ERID:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "ID incorrecto\n";
                         break;
