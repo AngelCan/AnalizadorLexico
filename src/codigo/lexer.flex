@@ -1,4 +1,4 @@
-0package codigo;
+package codigo;
 import static codigo.Tokens.*;
 %%
 %class Lexer
@@ -57,6 +57,10 @@ while {lexeme=yytext(); return IR;}
 ">="|
 "<"|
 ">" {lexeme=yytext(); return OR;}
+
+
+"||"|
+"&&" {lexeme=yytext(); return OL;}
 
 {J}{I}|
 {I}{J}|
@@ -190,6 +194,9 @@ while {lexeme=yytext(); return IR;}
 "while for"|
 "while do"|
 "while while" {lexeme=yytext(); return ERIR;}
+
+
+"'"{K}"'" {lexeme=yytext(); return value;}
 
 "boolean"{A}{K} {lexeme=yytext(); return ER1;}
 {A}{K}{G}({I}|{I}"."{I}|{A}{K})(H({I}|{I}"."{I}|{A}{K}))*{E} {lexeme=yytext(); return ER2;}
