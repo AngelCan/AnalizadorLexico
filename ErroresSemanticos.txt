@@ -1,0 +1,13 @@
+TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION
+1 Pruebaprueba12      
+
+Pruebaa4      Pruebaa6      Pruebab8      
+
+2 Pruebasuma10      3 Pruebaa12      4 Pruebab14      Pruebabool16      Pruebaf18      
+
+Pruebac20      Pruebaa22      Pruebab24      
+Pruebaa26      Pruebab28      Pruebaa30      Pruebac32      
+
+Pruebaa34      Pruebaa36      Pruebab38      Pruebaf40      
+
+FIN

@@ -24,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import codigo.FrmPrincipal;
 import static codigo.Tokens.ID;
+import java.io.FileWriter;
 
 public class Semantico {
     
@@ -32,32 +33,67 @@ int[a-z* = 0-9* ";"] {lexeme=yytext(); return Int;}
 string[a-z* = a-z* ";"] {lexeme=yytext(); return String;}
 double[a-z* = 0-9*"."0-9* ";"] {lexeme=yytext(); return Double;}
 for[]
-if[(a-z* OR ){} else{}]
+if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else{}]
 */
-
-}
-
-
-/*
-
-
+    
+    public static void main(String[] args) throws IOException {
+        
     ArrayList<String> TD1 = new ArrayList<String>();
     
     ArrayList<String> ID1 = new ArrayList<String>();
-        
-    try {
-    Reader lector = new BufferedReader(("TokensP.txt"));
+        try {
+            Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
             String resultado = "TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION\n";
-        while (true) {
-            Tokens tokens = lexer.yylex();
-    
-            if(tokens == ID){
-    
-
+            while (true) {
+                Tokens tokens = lexer.yylex();
+                
+            if (tokens == null) {
+                resultado += "FIN";
+                
+                File archivo = new File("ErroresSemanticos.txt");
+                PrintWriter escribir;
+                try {
+                    escribir = new PrintWriter(archivo);
+                    escribir.print(resultado);
+                    escribir.close();
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    return;
+                }
+            switch (tokens) {
+                    case ERROR:
+                    resultado += "Simbolo no definido\n";
+                    break;
+                    case JPM:
+                    resultado += "\n";
+                    break;
+                    case TD:
+                        TD1.add(lexer.lexeme);
+                        resultado += TD1.size() + " ";
+                        break;
+                    case ID:
+                        ID1.add(lexer.lexeme);
+                        resultado += "Prueba";
+                        if(ID1.contains(lexer.lexeme)){
+                        ID1.add(lexer.lexeme);
+                        resultado += lexer.lexeme + ID1.size() + "      ";
+                        }
+                        break;
+                    case ERDEL:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
+                    break;
+                    
+                }
             }
-    
-        }   
-    }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }    
+/*
 
 */
+}    

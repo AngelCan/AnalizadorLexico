@@ -209,7 +209,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 
                 switch (tokens) {
                     case JPM:
-                        resultado += " ";
+                        resultado += "";
                         break;
                     case AS: 
                     resultado += tokens + "               " + "=" + "\n";
