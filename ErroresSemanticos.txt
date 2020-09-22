@@ -1,13 +1,14 @@
 TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION
-1 Pruebaprueba12      
+Error-Semantico-11 
 
-Pruebaa4      Pruebaa6      Pruebab8      
+Error-Semantico-12 Error-Semantico-13 Error-Semantico-14 
 
-2 Pruebasuma10      3 Pruebaa12      4 Pruebab14      Pruebabool16      Pruebaf18      
+1 suma52 a23 b3bool6f7
 
-Pruebac20      Pruebaa22      Pruebab24      
-Pruebaa26      Pruebab28      Pruebaa30      Pruebac32      
+c8a2b3
+a2b3a2c7
 
-Pruebaa34      Pruebaa36      Pruebab38      Pruebaf40      
+a2a2b3f6
+
 
 FIN

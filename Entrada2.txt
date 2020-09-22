@@ -1,4 +1,4 @@
-void prueba1 ()
+prueba1 ()
 {
 a = a + b * 5;
 }

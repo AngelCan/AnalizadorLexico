@@ -69,17 +69,29 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     case JPM:
                     resultado += "\n";
                     break;
+                    
                     case TD:
                         TD1.add(lexer.lexeme);
                         resultado += TD1.size() + " ";
                         break;
+                    
                     case ID:
+                    
+                        if(TD1.isEmpty()){
                         ID1.add(lexer.lexeme);
-                        resultado += "Prueba";
-                        if(ID1.contains(lexer.lexeme)){
-                        ID1.add(lexer.lexeme);
-                        resultado += lexer.lexeme + ID1.size() + "      ";
+                        resultado += "Error-Semantico-1" + ID1.size() + " ";
                         }
+                        else{
+                            if(!ID1.contains(lexer.lexeme)){
+                            ID1.add(lexer.lexeme);
+                            resultado += lexer.lexeme + ID1.size();
+                            }
+                            else{
+                            resultado += lexer.lexeme + ID1.lastIndexOf(lexer.lexeme);
+                            
+                            }
+                        } 
+                        
                         break;
                     case ERDEL:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";

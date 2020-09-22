@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import codigo.Contador;
 import codigo.Semantico;
+import java.util.ArrayList;
 
 /**
  *
@@ -187,6 +188,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         File archivo = new File("Entrada2.txt");
         
         PrintWriter escribir;
+        
+        ArrayList<String> TD1 = new ArrayList<String>();
+        ArrayList<String> ID1 = new ArrayList<String>();
+        
         try {
             escribir = new PrintWriter(archivo);
             escribir.print(Entrada2txt.getText());
@@ -214,6 +219,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     case AS: 
                     resultado += tokens + "               " + "=" + "\n";
                     break;
+                        case ID:
+                        if(ID1.isEmpty()){
+                        ID1.add(lexer.lexeme);
+                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!ID1.contains(lexer.lexeme)){
+                            ID1.add(lexer.lexeme);
+                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                        case TD:
+                        if(ID1.isEmpty()){
+                        ID1.add(lexer.lexeme);
+                        resultado += "TD" + ID1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!ID1.contains(lexer.lexeme)){
+                            ID1.add(lexer.lexeme);
+                            resultado += "TD" + ID1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
                     default:
                     resultado += tokens + "               " + lexer.lexeme + "\n";
                     break;
@@ -230,6 +265,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         File archivo = new File("Tokens.txt");
         
         PrintWriter escribir;
+        
+        ArrayList<String> TD1 = new ArrayList<String>();
+        ArrayList<String> ID1 = new ArrayList<String>();
         try {
             escribir = new PrintWriter(archivo);
             escribir.print(Entrada2txt.getText());
@@ -253,6 +291,37 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     case ERROR:
                     resultado += "Simbolo no definido\n";
                     break;
+                    case ID:
+                        if(ID1.isEmpty()){
+                        ID1.add(lexer.lexeme);
+                        resultado += "ID" + ID1.size() + " ";
+                        }
+                        else{
+                            if(!ID1.contains(lexer.lexeme)){
+                            ID1.add(lexer.lexeme);
+                            resultado += "ID" + ID1.size() + " ";
+                            }
+                            else{
+                            resultado += "ID" + ID1.lastIndexOf(lexer.lexeme) + " ";
+                            }
+                        } 
+                        break;
+                    case TD:
+                        if(ID1.isEmpty()){
+                        ID1.add(lexer.lexeme);
+                        resultado += "TD" + ID1.size() + " ";
+                        }
+                        else{
+                            if(!ID1.contains(lexer.lexeme)){
+                            ID1.add(lexer.lexeme);
+                            resultado += "TD" + ID1.size() + " ";
+                            }
+                            else{
+                            resultado += "TD" + ID1.lastIndexOf(lexer.lexeme) + " ";
+                            }
+                        } 
+                        break;    
+
                     case JPM:
                     resultado += "\n";
                     break;
