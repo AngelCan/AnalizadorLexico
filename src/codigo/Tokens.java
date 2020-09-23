@@ -27,6 +27,7 @@ public enum Tokens {
     Division,
     ID,
     CNE,
+    CN,
     DEL,
     ERIC,
     ERIR,

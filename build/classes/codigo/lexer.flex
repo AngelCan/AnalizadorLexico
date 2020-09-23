@@ -48,7 +48,7 @@ while {lexeme=yytext(); return IR;}
 {F} {lexeme=yytext(); return SEP1;}
 
 {A}{K} {lexeme=yytext(); return ID;}
-{I}|
+{I} {lexeme=yytext(); return CN;}
 {I}"."{I} {lexeme=yytext(); return CNE;}
 
 "=="|

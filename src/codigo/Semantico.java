@@ -42,6 +42,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
     
     ArrayList<String> ID1 = new ArrayList<String>();
     ArrayList<String> Valor = new ArrayList<String>();
+    ArrayList<String> Error = new ArrayList<String>();
     
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
@@ -84,6 +85,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                             }
                             else{
                                 TD1.add(lexer.lexeme);
+                                resultado += "R";
                             }
                         }
                         break;
@@ -91,15 +93,25 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     case ID:
                     
                         if(TD1.isEmpty()){
-                        
+                        Error.add(lexer.lexeme);
                         resultado += "Variable no declarada" + ID1.size() + " ";
                         }
                         else{
+                            
                             if(!ID1.contains(lexer.lexeme)){
-                            ID1.add(lexer.lexeme);
-                            resultado += lexer.lexeme + ID1.size();
+                            
+                                ID1.add(lexer.lexeme);
+                                if(ID1.size() == TD1.size()){
+                                resultado += "Bien";
+                                }
+                                else{
+                                    Error.add(lexer.lexeme);
+                                    resultado += ID + "IDES" + Error.size() +  "Variable no declarada";
+                                }
+                            
                             }
                             else{
+                                
                             resultado += lexer.lexeme + ID1.lastIndexOf(lexer.lexeme);
                             
                             }
@@ -107,8 +119,15 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         
                         break;
                     case CNE:
+                        /* TD1.get(TD1.size());
+                        ID1.get(ID1.size());
+                         if(n == "double"){
+                            
+                        }else{
+                            resultado += "Error\n";
+                        } */
                         Valor.add(lexer.lexeme);
-                        resultado += Valor.size() + "";
+                        resultado += Valor.size() + " " ;
                         break;
                     case value:
                         Valor.add(lexer.lexeme);

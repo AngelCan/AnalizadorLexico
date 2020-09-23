@@ -203,7 +203,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
-            String resultado = "Token         Lexema\n"+"";
+            String resultado = "Token         Lexema         Tipo de dato\n"+"";
             while (true) {
                 Tokens tokens = lexer.yylex();
                 if (tokens == null) {
@@ -222,12 +222,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         case ID:
                         if(ID1.isEmpty()){
                         ID1.add(lexer.lexeme);
-                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme + "\n";
+                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme  + "\n";
                         }
                         else{
                             if(!ID1.contains(lexer.lexeme)){
                             ID1.add(lexer.lexeme);
-                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme + "\n";
+                            /* String TD2 = TD1.get(ID1.size());
+                            String TD2 = TD1.get(TD1.size()); */
+                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + /* TD2 + */  "\n";
                             }
                             else{
                             

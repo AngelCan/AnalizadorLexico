@@ -1,2 +1,4 @@
-int a = 22;
-string s = 'hola';
+double n = 32.0;
+int m = 33.0;
+int r = 99;
+int s = x + m;
