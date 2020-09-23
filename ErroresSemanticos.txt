@@ -1,5 +1,3 @@
 TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION
-TD1 Bien1 
-int2Bien2 
-RBien
-RBienIDIDES1Variable no declaradam1FIN
+TD1 Bien32.01 
+FIN

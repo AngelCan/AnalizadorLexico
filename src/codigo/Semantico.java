@@ -43,6 +43,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
     ArrayList<String> ID1 = new ArrayList<String>();
     ArrayList<String> Valor = new ArrayList<String>();
     ArrayList<String> Error = new ArrayList<String>();
+    ArrayList<String> OA1 = new ArrayList<String>();
     
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
@@ -106,7 +107,8 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                                 }
                                 else{
                                     Error.add(lexer.lexeme);
-                                    resultado += ID + "IDES" + Error.size() +  "Variable no declarada";
+                                    //IDES = ID Error Semantico
+                                    resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Variable no declarada\n";
                                 }
                             
                             }
@@ -126,13 +128,33 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         }else{
                             resultado += "Error\n";
                         } */
-                        Valor.add(lexer.lexeme);
-                        resultado += Valor.size() + " " ;
+                        if(TD1.contains("double") && TD1.size() == ID1.size()){
+                            Valor.add(lexer.lexeme);
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
+                        }else{
+                            resultado += "TODO MAL\n" ;
+                        }
+                        
                         break;
                     case value:
-                        Valor.add(lexer.lexeme);
-                        resultado += Valor.size() + "";
+                        if(TD1.contains("string") && TD1.size() == ID1.size()){
+                            Valor.add(lexer.lexeme);
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
+                        }else{
+                            resultado += "TODO MAL\n" ;
+                        }
                         break;
+                    case CN:
+                        if(TD1.contains("int") && TD1.size() == ID1.size()){
+                            Valor.add(lexer.lexeme);
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
+                        }else{
+                            resultado += "TODO MAL\n" ;
+                        }
+                    case OA:
+                        
+                        OA1.add("");
+                        
                     case ERDEL:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
                     break;
