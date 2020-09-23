@@ -41,6 +41,8 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
     ArrayList<String> TD1 = new ArrayList<String>();
     
     ArrayList<String> ID1 = new ArrayList<String>();
+    ArrayList<String> Valor = new ArrayList<String>();
+    
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
@@ -71,15 +73,26 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     break;
                     
                     case TD:
+                        if(TD1.isEmpty()){
                         TD1.add(lexer.lexeme);
-                        resultado += TD1.size() + " ";
+                        resultado += "TD" + TD1.size() + " ";
+                        }
+                        else{
+                            if(!TD1.contains(lexer.lexeme)){
+                                TD1.add(lexer.lexeme);
+                                resultado += lexer.lexeme + TD1.size();
+                            }
+                            else{
+                                TD1.add(lexer.lexeme);
+                            }
+                        }
                         break;
                     
                     case ID:
                     
                         if(TD1.isEmpty()){
-                        ID1.add(lexer.lexeme);
-                        resultado += "Error-Semantico-1" + ID1.size() + " ";
+                        
+                        resultado += "Variable no declarada" + ID1.size() + " ";
                         }
                         else{
                             if(!ID1.contains(lexer.lexeme)){
@@ -92,6 +105,14 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                             }
                         } 
                         
+                        break;
+                    case CNE:
+                        Valor.add(lexer.lexeme);
+                        resultado += Valor.size() + "";
+                        break;
+                    case value:
+                        Valor.add(lexer.lexeme);
+                        resultado += Valor.size() + "";
                         break;
                     case ERDEL:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
