@@ -100,7 +100,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         else{
                             
                             if(!ID1.contains(lexer.lexeme)){
-                            
+                                
                                 ID1.add(lexer.lexeme);
                                 if(ID1.size() == TD1.size()){
                                 resultado += "Bien";
@@ -109,6 +109,9 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                                     Error.add(lexer.lexeme);
                                     //IDES = ID Error Semantico
                                     resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Variable no declarada\n";
+                                }
+                                if(!OA1.isEmpty()){
+                                    resultado += "HOLA";
                                 }
                             
                             }
@@ -132,7 +135,9 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                             Valor.add(lexer.lexeme);
                             resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
                         }else{
-                            resultado += "TODO MAL\n" ;
+                            // CNEES = CNE Error Semantico
+                            Error.add(lexer.lexeme);
+                            resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Tipo de datos y valor Incompatibles\n"; 
                         }
                         
                         break;
@@ -141,7 +146,9 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                             Valor.add(lexer.lexeme);
                             resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
                         }else{
-                            resultado += "TODO MAL\n" ;
+                            // ValueES = CNE Error Semantico
+                             Error.add(lexer.lexeme);
+                            resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " +  "Tipo de datos y valor Incompatibles\n";
                         }
                         break;
                     case CN:
@@ -149,12 +156,17 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                             Valor.add(lexer.lexeme);
                             resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
                         }else{
-                            resultado += "TODO MAL\n" ;
+                            // CNES = CN Error Semantico
+                             Error.add(lexer.lexeme);
+                            resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Tipo de datos y valor Incompatibles\n";
                         }
                     case OA:
-                        
-                        OA1.add("");
-                        
+                        // Guardo el último elemento de TD1 en OA1
+                        // if(TD1.contains("double") )
+                        String s = TD1.get(TD1.size() - 1);
+                        OA1.add(s);
+                        resultado += OA1.size() + s + "Vas bien\n";
+                        break;
                     case ERDEL:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
                     break;

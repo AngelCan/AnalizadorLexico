@@ -36,7 +36,7 @@ while {lexeme=yytext(); return IR;}
 {B} {/*Ignore*/}
 "//".* {/*Ignore*/}
 "=" {return AS;}
-{H} {return OA;}
+{H} {lexeme=yytext(); return OA;}
 {C}|
 {D} {lexeme=yytext(); return DEL;}
 

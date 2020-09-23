@@ -1,3 +1,8 @@
 TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION
-TD1 Bien32.01 
+TD1 Bien231 
+1intVas bien
+
+double2BienHOLA33.02 
+2doubleVas bien
+n0
 FIN
