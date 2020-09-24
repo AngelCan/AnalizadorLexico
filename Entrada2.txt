@@ -1,2 +1,2 @@
 int n = 23;
-double m = 33.0 + n;
+double m = 33 + n;

@@ -77,16 +77,19 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     case TD:
                         if(TD1.isEmpty()){
                         TD1.add(lexer.lexeme);
-                        resultado += "TD" + TD1.size() + " ";
+                        /* Usar para realizar seguimiento
+                        resultado += "TD" + TD1.size() + " "; */
                         }
                         else{
                             if(!TD1.contains(lexer.lexeme)){
                                 TD1.add(lexer.lexeme);
-                                resultado += lexer.lexeme + TD1.size();
+                                /* Usar para realizar seguimiento
+                                resultado += lexer.lexeme + TD1.size(); */
                             }
                             else{
                                 TD1.add(lexer.lexeme);
-                                resultado += "R";
+                                //Para realizar el seguimiento, usar r entre las comillas
+                                resultado += "";
                             }
                         }
                         break;
@@ -95,7 +98,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     
                         if(TD1.isEmpty()){
                         Error.add(lexer.lexeme);
-                        resultado += "Variable no declarada" + ID1.size() + " ";
+                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Variable no declarada\n";
                         }
                         else{
                             
@@ -103,21 +106,36 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                                 
                                 ID1.add(lexer.lexeme);
                                 if(ID1.size() == TD1.size()){
-                                resultado += "Bien";
-                                }
+                                    //Para realizar el seguimiento, usar bien entre las comillas
+                                resultado += "";
+                                    
+                                    if(!OA1.isEmpty()){
+                                        String a = TD1.get(TD1.size() - 1);
+                                        String b = OA1.get(OA1.size() - 1);
+                                        
+                                        if(a == b){
+                                            //Para realizar el seguimiento, usar hola entre las comillas
+                                            /*
+                                            resultado += a + b + ""; */
+                                        } else{
+                                            resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Incompatibilidad de tipos\n";
+                                        }
+                                            
+                                        
+                                        
+                                    } //No hay OA
+                                } //Hay un ID no declarado
                                 else{
                                     Error.add(lexer.lexeme);
                                     //IDES = ID Error Semantico
                                     resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Variable no declarada\n";
                                 }
-                                if(!OA1.isEmpty()){
-                                    resultado += "HOLA";
-                                }
+                                
                             
                             }
                             else{
-                                
-                            resultado += lexer.lexeme + ID1.lastIndexOf(lexer.lexeme);
+                            /* Usar para realizar seguimiento    
+                            resultado += lexer.lexeme + ID1.lastIndexOf(lexer.lexeme); */
                             
                             }
                         } 
@@ -133,7 +151,8 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         } */
                         if(TD1.contains("double") && TD1.size() == ID1.size()){
                             Valor.add(lexer.lexeme);
-                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
+                            /* Usar para realizar seguimiento
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
                         }else{
                             // CNEES = CNE Error Semantico
                             Error.add(lexer.lexeme);
@@ -144,7 +163,8 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     case value:
                         if(TD1.contains("string") && TD1.size() == ID1.size()){
                             Valor.add(lexer.lexeme);
-                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
+                            /*
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
                         }else{
                             // ValueES = CNE Error Semantico
                              Error.add(lexer.lexeme);
@@ -154,7 +174,8 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     case CN:
                         if(TD1.contains("int") && TD1.size() == ID1.size()){
                             Valor.add(lexer.lexeme);
-                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ;
+                            /* Usar para realizar seguimiento
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
                         }else{
                             // CNES = CN Error Semantico
                              Error.add(lexer.lexeme);
@@ -165,7 +186,8 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         // if(TD1.contains("double") )
                         String s = TD1.get(TD1.size() - 1);
                         OA1.add(s);
-                        resultado += OA1.size() + s + "Vas bien\n";
+                        /* Usar para realizar seguimiento
+                        resultado += OA1.size() + s + "Vas bien\n"; */
                         break;
                     case ERDEL:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
