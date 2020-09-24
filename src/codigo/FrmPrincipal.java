@@ -405,6 +405,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ArrayList<String> SEP1 = new ArrayList<String>();
         ArrayList<String> OL1 = new ArrayList<String>();
         ArrayList<String> OR1 = new ArrayList<String>();
+        ArrayList<String> CN1 = new ArrayList<String>();
         
         
         try {
@@ -441,26 +442,155 @@ public class FrmPrincipal extends javax.swing.JFrame {
                             resultado += "ID" + ID1.size() + " ";
                             }
                             else{
-                            resultado += "ID" + ID1.lastIndexOf(lexer.lexeme) + " ";
+                            int P = ID1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "ID" + P + " ";
                             }
                         } 
                         break;
                     case TD:
-                        if(ID1.isEmpty()){
-                        ID1.add(lexer.lexeme);
-                        resultado += "TD" + ID1.size() + " ";
+                        if(TD1.isEmpty()){
+                        TD1.add(lexer.lexeme);
+                        resultado += "TD" + TD1.size() + " ";
                         }
                         else{
-                            if(!ID1.contains(lexer.lexeme)){
-                            ID1.add(lexer.lexeme);
-                            resultado += "TD" + ID1.size() + " ";
+                            if(!TD1.contains(lexer.lexeme)){
+                            TD1.add(lexer.lexeme);
+                            resultado += "TD" + TD1.size() + " ";
                             }
                             else{
-                            resultado += "TD" + ID1.lastIndexOf(lexer.lexeme) + " ";
+                                int P = TD1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "TD" + P + " ";
                             }
                         } 
-                        break;    
-
+                        break;
+                    case IC:
+                        if(IC1.isEmpty()){
+                        IC1.add(lexer.lexeme);
+                        resultado += "IC" + IC1.size() + " ";
+                        }
+                        else{
+                            if(!IC1.contains(lexer.lexeme)){
+                            IC1.add(lexer.lexeme);
+                            resultado += "IC" + IC1.size() + " ";
+                            }
+                            else{
+                                int P = IC1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "IC" + P + " ";
+                            }
+                        } 
+                        break;
+                    case IR:
+                        if(IR1.isEmpty()){
+                        IR1.add(lexer.lexeme);
+                        resultado += "IR" + IR1.size() + " ";
+                        }
+                        else{
+                            if(!IR1.contains(lexer.lexeme)){
+                            IR1.add(lexer.lexeme);
+                            resultado += "IR" + IR1.size() + " ";
+                            }
+                            else{
+                                int P = IR1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "IR" + P + " ";
+                            }
+                        } 
+                        break;
+                    case OA:
+                        if(OA1.isEmpty()){
+                        OA1.add(lexer.lexeme);
+                        resultado += "OA" + OA1.size() + " ";
+                        }
+                        else{
+                            if(!OA1.contains(lexer.lexeme)){
+                            OA1.add(lexer.lexeme);
+                            resultado += "OA" + OA1.size() + " ";
+                            }
+                            else{
+                                int P = OA1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "OA" + P + " ";
+                            }
+                        } 
+                        break;
+                    case DEL:
+                        if(DEL1.isEmpty()){
+                        DEL1.add(lexer.lexeme);
+                        resultado += "DEL" + DEL1.size() + " ";
+                        }
+                        else{
+                            if(!DEL1.contains(lexer.lexeme)){
+                            DEL1.add(lexer.lexeme);
+                            resultado += "DEL" + DEL1.size() + " ";
+                            }
+                            else{
+                                int P = DEL1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "DEL" + P + " ";
+                            }
+                        } 
+                        break;
+                    case SEP:
+                        if(SEP1.isEmpty()){
+                        SEP1.add(lexer.lexeme);
+                        resultado += "SEP" + SEP1.size() + " ";
+                        }
+                        else{
+                            if(!SEP1.contains(lexer.lexeme)){
+                            SEP1.add(lexer.lexeme);
+                            resultado += "SEP" + SEP1.size() + " ";
+                            }
+                            else{
+                                int P = SEP1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "SEP" + P + " ";
+                            }
+                        } 
+                        break;
+                    case OL:
+                        if(OL1.isEmpty()){
+                        OL1.add(lexer.lexeme);
+                        resultado += "OL" + OL1.size() + " ";
+                        }
+                        else{
+                            if(!OL1.contains(lexer.lexeme)){
+                            OL1.add(lexer.lexeme);
+                            resultado += "OL" + OL1.size() + " ";
+                            }
+                            else{
+                                int P = OL1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "OL" + P + " ";
+                            }
+                        } 
+                        break;
+                    case OR:
+                        if(OR1.isEmpty()){
+                        OR1.add(lexer.lexeme);
+                        resultado += "OR" + OR1.size() + " ";
+                        }
+                        else{
+                            if(!OR1.contains(lexer.lexeme)){
+                            OR1.add(lexer.lexeme);
+                            resultado += "OR" + OR1.size() + " ";
+                            }
+                            else{
+                                int P = OR1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "OR" + P + " ";
+                            }
+                        } 
+                        break;
+                    case CN:
+                        if(CN1.isEmpty()){
+                        CN1.add(lexer.lexeme);
+                        resultado += "CN" + CN1.size() + " ";
+                        }
+                        else{
+                            if(!CN1.contains(lexer.lexeme)){
+                            CN1.add(lexer.lexeme);
+                            resultado += "CN" + CN1.size() + " ";
+                            }
+                            else{
+                                int P = CN1.lastIndexOf(lexer.lexeme) + 1;
+                            resultado += "CN" + P + " ";
+                            }
+                        } 
+                        break;
                     case JPM:
                     resultado += "\n";
                     break;

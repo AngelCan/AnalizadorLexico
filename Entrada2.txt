@@ -1,8 +1,12 @@
 void prueba1 ()
 {
 a = a + b * 5;
-if ( a < b)
+}
+int suma (int a, int b, bool f)
 {
-a = a * 5;
+c = a + b;
+if(a <=b &&a <= c)
+{
+a = a + b + f ;
 }
 }
