@@ -168,6 +168,10 @@ while {lexeme=yytext(); return IR;}
 "< <=" {lexeme=yytext(); return EROR;}
 
 
+"int"{K}|
+"in" {K} "t" {lexeme=yytext(); return IDERS;} 
+
+
 "if if" |
 "if else" |
 "if switch"|

@@ -1,2 +1,8 @@
-HOLA.9
-hola.9
+void prueba1 ()
+{
+a = a + b * 5;
+if ( a < b)
+{
+a = a * 5;
+}
+}

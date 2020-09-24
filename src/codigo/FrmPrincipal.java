@@ -191,6 +191,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         ArrayList<String> TD1 = new ArrayList<String>();
         ArrayList<String> ID1 = new ArrayList<String>();
+        ArrayList<String> IC1 = new ArrayList<String>();
+        ArrayList<String> IR1 = new ArrayList<String>();
+        ArrayList<String> OA1 = new ArrayList<String>();
+        ArrayList<String> DEL1 = new ArrayList<String>();
+        ArrayList<String> SEP1 = new ArrayList<String>();
+        ArrayList<String> OL1 = new ArrayList<String>();
+        ArrayList<String> OR1 = new ArrayList<String>();
+        ArrayList<String> CN1 = new ArrayList<String>();
         
         try {
             escribir = new PrintWriter(archivo);
@@ -217,7 +225,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         resultado += "";
                         break;
                     case AS: 
-                    resultado += tokens + "               " + "=" + "\n";
+                    resultado += tokens + "1                " + "=" + "\n";
                     break;
                         case ID:
                         if(ID1.isEmpty()){
@@ -237,20 +245,140 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         } 
                         break;
                         case TD:
-                        if(ID1.isEmpty()){
-                        ID1.add(lexer.lexeme);
-                        resultado += "TD" + ID1.size() + "               " + lexer.lexeme + "\n";
+                        if(TD1.isEmpty()){
+                        TD1.add(lexer.lexeme);
+                        resultado += "TD" + TD1.size() + "               " + lexer.lexeme + "\n";
                         }
                         else{
-                            if(!ID1.contains(lexer.lexeme)){
-                            ID1.add(lexer.lexeme);
-                            resultado += "TD" + ID1.size() + "               " + lexer.lexeme + "\n";
+                            if(!TD1.contains(lexer.lexeme)){
+                            TD1.add(lexer.lexeme);
+                            resultado += "TD" + TD1.size() + "               " + lexer.lexeme + "\n";
                             }
                             else{
                             
                             }
                         } 
                         break;
+                    case IC:
+                        if(IC1.isEmpty()){
+                        IC1.add(lexer.lexeme);
+                        resultado += "IC" + IC1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!IC1.contains(lexer.lexeme)){
+                            IC1.add(lexer.lexeme);
+                            resultado += "IC" + IC1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;    
+                    case IR:
+                        if(IR1.isEmpty()){
+                        IR1.add(lexer.lexeme);
+                        resultado += "IR" + IR1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!IR1.contains(lexer.lexeme)){
+                            IR1.add(lexer.lexeme);
+                            resultado += "IR" + IR1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                    case OA:
+                        if(OA1.isEmpty()){
+                        OA1.add(lexer.lexeme);
+                        resultado += "OA" + OA1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!OA1.contains(lexer.lexeme)){
+                            OA1.add(lexer.lexeme);
+                            resultado += "TD" + OA1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                    case DEL:
+                        if(DEL1.isEmpty()){
+                        DEL1.add(lexer.lexeme);
+                        resultado += "DEL" + DEL1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!DEL1.contains(lexer.lexeme)){
+                            DEL1.add(lexer.lexeme);
+                            resultado += "DEL" + DEL1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                    case SEP:
+                        if(SEP1.isEmpty()){
+                        SEP1.add(lexer.lexeme);
+                        resultado += "SEP" + SEP1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!SEP1.contains(lexer.lexeme)){
+                            SEP1.add(lexer.lexeme);
+                            resultado += "SEP" + SEP1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                    case OL:
+                        if(OL1.isEmpty()){
+                        OL1.add(lexer.lexeme);
+                        resultado += "OL" + OL1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!OL1.contains(lexer.lexeme)){
+                            OL1.add(lexer.lexeme);
+                            resultado += "OL" + OL1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                    case OR:
+                        if(OR1.isEmpty()){
+                        OR1.add(lexer.lexeme);
+                        resultado += "OR" + OR1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!OR1.contains(lexer.lexeme)){
+                            OR1.add(lexer.lexeme);
+                            resultado += "OR" + OR1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;
+                    case CN:
+                        if(CN1.isEmpty()){
+                        CN1.add(lexer.lexeme);
+                        resultado += "CN" + CN1.size() + "               " + lexer.lexeme + "\n";
+                        }
+                        else{
+                            if(!CN1.contains(lexer.lexeme)){
+                            CN1.add(lexer.lexeme);
+                            resultado += "CN" + CN1.size() + "               " + lexer.lexeme + "\n";
+                            }
+                            else{
+                            
+                            }
+                        } 
+                        break;    
                     default:
                     resultado += tokens + "               " + lexer.lexeme + "\n";
                     break;
@@ -270,6 +398,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         ArrayList<String> TD1 = new ArrayList<String>();
         ArrayList<String> ID1 = new ArrayList<String>();
+        ArrayList<String> IC1 = new ArrayList<String>();
+        ArrayList<String> IR1 = new ArrayList<String>();
+        ArrayList<String> OA1 = new ArrayList<String>();
+        ArrayList<String> DEL1 = new ArrayList<String>();
+        ArrayList<String> SEP1 = new ArrayList<String>();
+        ArrayList<String> OL1 = new ArrayList<String>();
+        ArrayList<String> OR1 = new ArrayList<String>();
+        
+        
         try {
             escribir = new PrintWriter(archivo);
             escribir.print(Entrada2txt.getText());
@@ -401,6 +538,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         break;
                     case ERDEL:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "Error en delimitadores\n";
+                    break;
+                    case IDERS:
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "Error en la declaracion de ID\n";
                     break;
                 }
             }

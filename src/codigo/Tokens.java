@@ -40,6 +40,7 @@ public enum Tokens {
     ERAS,
     EROA,
     ERROR,
+    IDERS, //ID ERror Semantico
     OL, //Operador Lógico
     value
 }
