@@ -237,9 +237,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         else{
                             if(!ID1.contains(lexer.lexeme)){
                             ID1.add(lexer.lexeme);
-                            // FALTA OBTENER EL TIPO DE DATO DEL ID
                             
-                            // String c = TD1.get(TD1.size() - 1);
                             int N = TD1.size() - 1;
                             String M = TD1.get(N);
                             resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + M +   "\n";
@@ -613,7 +611,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         File archivo = new File("TokensP.txt");
+        ArrayList<String> TD1 = new ArrayList<String>();
+        ArrayList<String> ID1 = new ArrayList<String>();
+        ArrayList<String> Valor = new ArrayList<String>();
+        ArrayList<String> Error = new ArrayList<String>();
+        ArrayList<String> OA1 = new ArrayList<String>();
         ArrayList<String> Cont = new ArrayList<String>();
+        
         PrintWriter escribir;
         try {
             escribir = new PrintWriter(archivo);
@@ -626,7 +630,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         try {
             Reader lector = new BufferedReader(new FileReader("TokensP.txt"));
             Lexer lexer = new Lexer(lector);
-            String resultado = "TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION\n";
+            String resultado = "TOKEN ERROR       LEXEMA            LINEA       DESCRIPCION\n";
             while (true) {
                 Tokens tokens = lexer.yylex();
                 
@@ -642,8 +646,124 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     break;
                     case JPM:
                         Cont.add("linea");
-                    resultado += "\n";
-                    break;                                                                
+                    break;                              
+                    case TD:
+                        if(TD1.isEmpty()){
+                        TD1.add(lexer.lexeme);
+                        /* Usar para realizar seguimiento
+                        resultado += "TD" + TD1.size() + " "; */
+                        }
+                        else{
+                            if(!TD1.contains(lexer.lexeme)){
+                                TD1.add(lexer.lexeme);
+                                /* Usar para realizar seguimiento
+                                resultado += lexer.lexeme + TD1.size(); */
+                            }
+                            else{
+                                TD1.add(lexer.lexeme);
+                                //Para realizar el seguimiento, usar r entre las comillas
+                                resultado += "";
+                            }
+                        }
+                        break;
+                    
+                    case ID:
+                    
+                        if(TD1.isEmpty()){
+                        Error.add(lexer.lexeme);
+                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  Cont.size() + "       " + "Variable no declarada\n";
+                        }
+                        else{
+                            
+                            if(!ID1.contains(lexer.lexeme)){
+                                
+                                ID1.add(lexer.lexeme);
+                                if(ID1.size() == TD1.size()){
+                                    //Para realizar el seguimiento, usar bien entre las comillas
+                                resultado += "";
+                                    
+                                    if(!OA1.isEmpty()){
+                                        String a = TD1.get(TD1.size() - 1);
+                                        String b = OA1.get(OA1.size() - 1);
+                                        
+                                        if(a == b){
+                                            //Para realizar el seguimiento, usar hola entre las comillas
+                                            /*
+                                            resultado += a + b + ""; */
+                                        } else{
+                                            resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  Cont.size() + "       " + "Incompatibilidad de tipos\n";
+                                        }
+                                            
+                                        
+                                        
+                                    } //No hay OA
+                                } //Hay un ID no declarado
+                                else{
+                                    Error.add(lexer.lexeme);
+                                    //IDES = ID Error Semantico
+                                    resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  Cont.size() + "       " + "Variable no declarada\n";
+                                }
+                                
+                            
+                            }
+                            else{
+                            /* Usar para realizar seguimiento    
+                            resultado += lexer.lexeme + ID1.lastIndexOf(lexer.lexeme); */
+                            
+                            }
+                        } 
+                        
+                        break;
+                    case CNE:
+                        /* TD1.get(TD1.size());
+                        ID1.get(ID1.size());
+                         if(n == "double"){
+                            
+                        }else{
+                            resultado += "Error\n";
+                        } */
+                        if(TD1.contains("double") && TD1.size() == ID1.size()){
+                            Valor.add(lexer.lexeme);
+                            /* Usar para realizar seguimiento
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
+                        }else{
+                            // CNEES = CNE Error Semantico
+                            Error.add(lexer.lexeme);
+                            resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  Cont.size() + "       " + "Tipo de datos y valor Incompatibles\n"; 
+                        }
+                        
+                        break;
+                    case value:
+                        if(TD1.contains("string") && TD1.size() == ID1.size()){
+                            Valor.add(lexer.lexeme);
+                            /*
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
+                        }else{
+                            // ValueES = CNE Error Semantico
+                             Error.add(lexer.lexeme);
+                            resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  Cont.size() + "       " +  "Tipo de datos y valor Incompatibles\n";
+                        }
+                        break;
+                    case CN:
+                        if(TD1.contains("int") && TD1.size() == ID1.size()){
+                            Valor.add(lexer.lexeme);
+                            /* Usar para realizar seguimiento
+                            resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
+                        }else{
+                            // CNES = CN Error Semantico
+                             Error.add(lexer.lexeme);
+                            resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  Cont.size() + "       " + "Tipo de datos y valor Incompatibles\n";
+                        }
+                    case OA:
+                        // Guardo el último elemento de TD1 en OA1
+                        // if(TD1.contains("double") )
+                        String s = TD1.get(TD1.size() - 1);
+                        OA1.add(s);
+                        /* Usar para realizar seguimiento
+                        resultado += OA1.size() + s + "Vas bien\n"; */
+                        break;
+                    
+                
                     case ERID:
                         resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "ID incorrecto\n";
                         break;
