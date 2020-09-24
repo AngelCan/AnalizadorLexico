@@ -1,5 +1,23 @@
 TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION
 
-IDES0                    m         linea        Incompatibilidad de tipos
+
+IDES1                    a         linea        Variable no declarada
+IDES2                    b         linea        Variable no declarada
+CNES3                    5         linea        Tipo de datos y valor Incompatibles
+
+IDES4                    y         linea        Variable no declarada
+CNES5                    8         linea        Tipo de datos y valor Incompatibles
+
+
+CNES6                    5         linea        Tipo de datos y valor Incompatibles
+
+
+
+IDES7                    suma         linea        Variable no declarada
+Simbolo no definido
+IDES8                    bool         linea        Variable no declarada
+IDES9                    c         linea        Variable no declarada
+
+
 
 FIN

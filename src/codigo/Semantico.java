@@ -44,6 +44,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
     ArrayList<String> Valor = new ArrayList<String>();
     ArrayList<String> Error = new ArrayList<String>();
     ArrayList<String> OA1 = new ArrayList<String>();
+    ArrayList<String> Cont = new ArrayList<String>();
     
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
@@ -71,6 +72,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     resultado += "Simbolo no definido\n";
                     break;
                     case JPM:
+                    Cont.add("linea ");
                     resultado += "\n";
                     break;
                     
@@ -98,7 +100,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                     
                         if(TD1.isEmpty()){
                         Error.add(lexer.lexeme);
-                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Variable no declarada\n";
+                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " + "Variable no declarada\n";
                         }
                         else{
                             
@@ -118,7 +120,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                                             /*
                                             resultado += a + b + ""; */
                                         } else{
-                                            resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Incompatibilidad de tipos\n";
+                                            resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " + "Incompatibilidad de tipos\n";
                                         }
                                             
                                         
@@ -128,7 +130,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                                 else{
                                     Error.add(lexer.lexeme);
                                     //IDES = ID Error Semantico
-                                    resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Variable no declarada\n";
+                                    resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " + "Variable no declarada\n";
                                 }
                                 
                             
@@ -156,7 +158,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         }else{
                             // CNEES = CNE Error Semantico
                             Error.add(lexer.lexeme);
-                            resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Tipo de datos y valor Incompatibles\n"; 
+                            resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " + "Tipo de datos y valor Incompatibles\n"; 
                         }
                         
                         break;
@@ -168,7 +170,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         }else{
                             // ValueES = CNE Error Semantico
                              Error.add(lexer.lexeme);
-                            resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " +  "Tipo de datos y valor Incompatibles\n";
+                            resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " +  "Tipo de datos y valor Incompatibles\n";
                         }
                         break;
                     case CN:
@@ -179,7 +181,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         }else{
                             // CNES = CN Error Semantico
                              Error.add(lexer.lexeme);
-                            resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " + "       " + "Tipo de datos y valor Incompatibles\n";
+                            resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " + "Tipo de datos y valor Incompatibles\n";
                         }
                     case OA:
                         // Guardo el último elemento de TD1 en OA1
@@ -190,7 +192,7 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
                         resultado += OA1.size() + s + "Vas bien\n"; */
                         break;
                     case ERDEL:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "Error en delimitadores\n";
                     break;
                     
                 }
@@ -201,7 +203,4 @@ if[(ID OR (0-9*|false|true|null)(&& | || (ID OR (0-9*|false|true|null))*){} else
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }    
-/*
-
-*/
 }    

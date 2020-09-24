@@ -227,9 +227,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         else{
                             if(!ID1.contains(lexer.lexeme)){
                             ID1.add(lexer.lexeme);
-                            /* String TD2 = TD1.get(ID1.size());
-                            String TD2 = TD1.get(TD1.size()); */
-                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + /* TD2 + */  "\n";
+                            // FALTA OBTENER EL TIPO DE DATO DEL ID
+                            // String c = TD1.get(TD1.size() - 1);
+                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         "  +   "\n";
                             }
                             else{
                             
@@ -341,7 +341,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         File archivo = new File("TokensP.txt");
-        
+        ArrayList<String> Cont = new ArrayList<String>();
         PrintWriter escribir;
         try {
             escribir = new PrintWriter(archivo);
@@ -369,37 +369,38 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     resultado += "Simbolo no definido\n";
                     break;
                     case JPM:
+                        Cont.add("linea");
                     resultado += "\n";
                     break;                                                                
                     case ERID:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "ID incorrecto\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "ID incorrecto\n";
                         break;
                     case ERCNE:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "CNE incorrecto\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "CNE incorrecto\n";
                         break;                   
                     case ERSEP:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de separadores incorrecto\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "uso de separadores incorrecto\n";
                         break;                    
                     case ERAS:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "uso de asignador incorrecto\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "uso de asignador incorrecto\n";
                         break;                                           
                     case EROA:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores aritmeticos incorrectos\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "operadores aritmeticos incorrectos\n";
                         break;                                            
                     case ERTD:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos tipos de datos juntos\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "NO se permiten dos tipos de datos juntos\n";
                         break;
                     case EROR:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "operadores relacionaes incorrectos\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "operadores relacionaes incorrectos\n";
                         break;
                     case ERIR:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos IR juntos\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "NO se permiten dos IR juntos\n";
                         break;
                     case ERIC:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "NO se permiten dos IC juntos\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "NO se permiten dos IC juntos\n";
                         break;
                     case ERDEL:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " + "       " + "Error en delimitadores\n";
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "Error en delimitadores\n";
                     break;
                 }
             }
