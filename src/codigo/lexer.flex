@@ -25,6 +25,7 @@ char|
 long|
 string | 
 boolean | 
+bool |
 int {lexeme=yytext(); return TD;}
 if |
 else |

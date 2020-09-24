@@ -230,14 +230,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         case ID:
                         if(ID1.isEmpty()){
                         ID1.add(lexer.lexeme);
-                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme  + "\n";
+                        int N = TD1.size() - 1;
+                        String M = TD1.get(N);
+                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme  + "         " + M +  "\n";
                         }
                         else{
                             if(!ID1.contains(lexer.lexeme)){
                             ID1.add(lexer.lexeme);
                             // FALTA OBTENER EL TIPO DE DATO DEL ID
+                            
                             // String c = TD1.get(TD1.size() - 1);
-                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         "  +   "\n";
+                            int N = TD1.size() - 1;
+                            String M = TD1.get(N);
+                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + M +   "\n";
                             }
                             else{
                             
