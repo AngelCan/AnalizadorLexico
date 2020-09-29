@@ -617,6 +617,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ArrayList<String> Error = new ArrayList<String>();
         ArrayList<String> OA1 = new ArrayList<String>();
         ArrayList<String> Cont = new ArrayList<String>();
+        ArrayList<String> AS1 = new ArrayList<String>();
         
         PrintWriter escribir;
         try {
@@ -642,16 +643,39 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 
                 switch (tokens) {
                     case ERROR:
-                        if(TD1.size() == ID1.size()){
+                        if(TD1.size() != ID1.size()){
                         int L = Cont.size() + 1;
                         
-                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
+                        resultado += "TDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
                         } else {
-                            int L = Cont.size() + 1;
-                            resultado += "TDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
-                        }
+                            if(TD1.contains("int") && TD1.size() == ID1.size() && AS1.size() != 0){
+                                int L = Cont.size() + 1;
+                                resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
+                            } else {
+                                if(TD1.contains("double") && TD1.size() == ID1.size()){
+                                int L = Cont.size() + 1;
+                                resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
+                                } else {
+                                    if(TD1.contains("string") && TD1.size() == ID1.size()){
+                                        int L = Cont.size() + 1;
+                                        resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
+                                    }
+                                    else {
+                                        int L = Cont.size() + 1;
+                                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n"; 
+                                    }
+                                }
+                            }
+                            
+                            
+                             
+                            
+                        } //Falta el error por CNE, CN y Value
                         
                     break;
+                    case AS:
+                        AS1.add("=");
+                        AS1.add("=");
                     case JPM:
                         Cont.add("linea");
                     break;                              
