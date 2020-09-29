@@ -237,10 +237,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         else{
                             if(!ID1.contains(lexer.lexeme)){
                             ID1.add(lexer.lexeme);
+                            if(TD1.size() != ID1.size()){
+                                resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " +  "\n";
+                            }else{
+                                int N = TD1.size() - 1;
+                                String M = TD1.get(N);
+                                resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + M +   "\n";
+                            }
                             
-                            int N = TD1.size() - 1;
-                            String M = TD1.get(N);
-                            resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + M +   "\n";
                             }
                             else{
                             
