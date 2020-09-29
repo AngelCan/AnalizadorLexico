@@ -642,7 +642,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 
                 switch (tokens) {
                     case ERROR:
-                    resultado += "Simbolo no definido\n";
+                        if(TD1.size() == ID1.size()){
+                        int L = Cont.size() + 1;
+                        
+                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
+                        } else {
+                            int L = Cont.size() + 1;
+                            resultado += "TDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L +  "       " +  "Error por Simbolo no definido\n";
+                        }
+                        
                     break;
                     case JPM:
                         Cont.add("linea");
@@ -671,7 +679,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     
                         if(TD1.isEmpty()){
                         Error.add(lexer.lexeme);
-                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  Cont.size() + "       " + "Variable no declarada\n";
+                        int L = Cont.size() + 1;
+                        resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L + "       " + "Variable no declarada\n";
                         }
                         else{
                             
@@ -691,7 +700,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                                             /*
                                             resultado += a + b + ""; */
                                         } else{
-                                            resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  Cont.size() + "       " + "Incompatibilidad de tipos\n";
+                                            int L = Cont.size() + 1;
+                                            resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  L + "       " + "Incompatibilidad de tipos\n";
                                         }
                                             
                                         
@@ -700,8 +710,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                                 } //Hay un ID no declarado
                                 else{
                                     Error.add(lexer.lexeme);
+                                    int L = Cont.size() + 1;
                                     //IDES = ID Error Semantico
-                                    resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  Cont.size() + "       " + "Variable no declarada\n";
+                                    resultado += "IDES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  L + "       " + "Variable no declarada\n";
                                 }
                                 
                             
@@ -729,7 +740,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         }else{
                             // CNEES = CNE Error Semantico
                             Error.add(lexer.lexeme);
-                            resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  Cont.size() + "       " + "Tipo de datos y valor Incompatibles\n"; 
+                            int L = Cont.size() + 1;
+                            resultado += "CNEES" + Error.size() + "                    " + lexer.lexeme + "                   " +   "linea " +  L + "       " + "Tipo de datos y valor Incompatibles\n"; 
                         }
                         
                         break;
@@ -741,7 +753,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         }else{
                             // ValueES = CNE Error Semantico
                              Error.add(lexer.lexeme);
-                            resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  Cont.size() + "       " +  "Tipo de datos y valor Incompatibles\n";
+                             int L = Cont.size() + 1;
+                            resultado += "ValueES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L + "       " +  "Tipo de datos y valor Incompatibles\n";
                         }
                         break;
                     case CN:
@@ -752,7 +765,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         }else{
                             // CNES = CN Error Semantico
                              Error.add(lexer.lexeme);
-                            resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  Cont.size() + "       " + "Tipo de datos y valor Incompatibles\n";
+                             int L = Cont.size() + 1;
+                            resultado += "CNES" + Error.size() + "                    " + lexer.lexeme + "                   "+   "linea " +  L + "       " + "Tipo de datos y valor Incompatibles\n";
                         }
                     case OA:
                         // Guardo el último elemento de TD1 en OA1
@@ -765,38 +779,50 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     
                 
                     case ERID:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "ID incorrecto\n";
+                        int L1 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L1 + "       " + "ID incorrecto\n";
                         break;
                     case ERCNE:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "CNE incorrecto\n";
+                        int L2 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L2 + "       " + "CNE incorrecto\n";
                         break;                   
                     case ERSEP:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "uso de separadores incorrecto\n";
+                        int L3 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L3 + "       " + "uso de separadores incorrecto\n";
                         break;                    
                     case ERAS:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "uso de asignador incorrecto\n";
+                        int L4 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L4 + "       " + "uso de asignador incorrecto\n";
                         break;                                           
                     case EROA:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "operadores aritmeticos incorrectos\n";
+                        int L5 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L5 + "       " + "operadores aritmeticos incorrectos\n";
                         break;                                            
                     case ERTD:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "NO se permiten dos tipos de datos juntos\n";
+                        int L6 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L6 + "       " + "NO se permiten dos tipos de datos juntos\n";
                         break;
                     case EROR:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "operadores relacionaes incorrectos\n";
+                        int L7 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L7 + "       " + "operadores relacionaes incorrectos\n";
                         break;
                     case ERIR:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "NO se permiten dos IR juntos\n";
+                        int L8 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L8 + "       " + "NO se permiten dos IR juntos\n";
                         break;
                     case ERIC:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "NO se permiten dos IC juntos\n";
+                        int L9 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L9 + "       " + "NO se permiten dos IC juntos\n";
                         break;
                     case ERDEL:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "Error en delimitadores\n";
+                        int L10 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L10 + "       " + "Error en delimitadores\n";
                     break;
                     case IDERS:
-                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  Cont.size() + "       " + "Error en la declaracion de ID\n";
+                        int L11 = Cont.size() + 1;
+                        resultado += tokens + "                      " + lexer.lexeme + "         " + "linea " +  L11 + "       " + "Error en la declaracion de ID\n";
                     break;
+                    
                 }
             }
         } catch (FileNotFoundException ex) {
