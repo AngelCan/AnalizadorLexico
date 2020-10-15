@@ -232,7 +232,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         ID1.add(lexer.lexeme);
                         int N = TD1.size() - 1;
                         String M = TD1.get(N);
-                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme  + "         " + M +  "\n";
+                        resultado += "ID" + ID1.size() + "               " + lexer.lexeme  + "                 " + M +  "\n";
                         }
                         else{
                             if(!ID1.contains(lexer.lexeme)){
@@ -242,7 +242,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                             }else{
                                 int N = TD1.size() - 1;
                                 String M = TD1.get(N);
-                                resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "         " + M +   "\n";
+                                resultado += "ID" + ID1.size() + "               " + lexer.lexeme +  "                 " + M +   "\n";
                             }
                             
                             }
