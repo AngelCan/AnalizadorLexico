@@ -211,7 +211,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
-            String resultado = "Token         Lexema          Tipo de dato\n"+"";
+            String resultado = "Token         Lexema         Tipo de dato\n"+"";
             while (true) {
                 Tokens tokens = lexer.yylex();
                 if (tokens == null) {
