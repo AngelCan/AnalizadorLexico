@@ -1,4 +1,2 @@
-int n = 3;
-string s = 'hola';
-double m = 33.3;
- r = 3
+int n = 12 + 34 - 56 * 78 / 90;
+int m = 23 + 90 / 45 - 18 * 76;
