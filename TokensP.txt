@@ -1,12 +1,2 @@
-void prueba1 ()
-{
-a = a + b * 5;
-if ( y < 8)
-{
-a = a * 5;
-}
-}
-int suma@ (int a, int b, bool c)
-{
-c = a + b;
-}
+int n = 12 + 34 - 56;
+int m = 90 / 45 * 76;
