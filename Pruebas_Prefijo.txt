@@ -1,15 +1,10 @@
 Linea   Operador      Dato Fuente     Dato Objeto  
-nhola+1234
+=n+1234
 -+123456
-*-+12345678
-/*-+1234567890
 
-/*-+12345678907u7
-mholaIDES0                    m         linea 1       Incompatibilidad de tipos
-+2390
-/+239045
--/+23904518
-*-/+2390451876
+=n-+1234567u7
+=mIDES0                    m         linea 1       Incompatibilidad de tipos
+/9045
+*/904576
 
-*-/+23904518767u7
-FIN
+=m*/9045767u7FIN
