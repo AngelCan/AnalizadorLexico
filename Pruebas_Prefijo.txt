@@ -1,10 +1,9 @@
 Linea   Operador      Dato Fuente     Dato Objeto  
-=n+1234
--+123456
+=n+       23.3
+*94.512.5
+-*94.512.594.6
+/-*94.512.594.621.1
++23.3-*94.512.594.6
 
-=n-+1234567u7
-=mIDES0                    m         linea 1       Incompatibilidad de tipos
-/9045
-*/904576
-
-=m*/9045767u7FIN
+1
+=n/-*94.512.594.621.17u7FIN
