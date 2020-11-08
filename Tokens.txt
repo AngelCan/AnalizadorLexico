@@ -1,12 +1,1 @@
-void prueba1 ()
-{
-a = a + b * 5;
-}
-int suma (int a, int b, bool f)
-{
-c = a + b;
-if(a <=b &&a <= c)
-{
-a = a + b + f ;
-}
-}
+double n = 23.3 + 94.5 * 12.5 - 94.6 / 21.1;

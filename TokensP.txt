@@ -1,12 +1,1 @@
-void prueba1 ()
-{
-a = a + b * 5;
-if ( y < 8)
-{
-a = a * 5;
-}
-}
-int suma@ (int a, int b, bool c)
-{
-c = a + b;
-}
+double n = 23.3 + 94.5 * 12.5 - 94.6 / 21.1;
