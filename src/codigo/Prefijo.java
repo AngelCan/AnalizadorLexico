@@ -460,10 +460,9 @@ public static void main(String[] args) throws IOException {
                             
                             int f = OA_AuxE1.size();
                             int f2 = f - 1;
-                            
-                            
-                                    
-                            for(int i = 0; i < f2; i++){
+                           
+                            if(f != 0 && f != 1){
+                                for(int i = 0; i < f2; i++){
                                 
                                 
                                 
@@ -526,8 +525,53 @@ public static void main(String[] args) throws IOException {
                                     Prefijo.add(f1);
                                     String i2 = PrefijoF.get(PrefijoF.size() -1);
                                     resultado+= "=" + i2 + " " + f1;
+                                    Prefijo.clear();
+                                    OA_AuxE1.clear();
+                                    OA_AuxE.clear();
+                                    PrefijoListo.clear();
                                 }
                             }
+                            } if(f == 1){
+                                int n = OA_AuxE1.indexOf("+");
+                                int m = OA_AuxE1.indexOf("-");
+                                   
+                                    if(n == 0){
+                                        int n1 = n;
+                                        int n2 = n + 2;
+                                        String p1 = OA_AuxE.get(n1);
+                                        String p2 = OA_AuxE.get(n2);
+                                        String p3 = "+";
+                                        OA_AuxE.add(p3+p1+p2);
+                                        String r = OA_AuxE.get(OA_AuxE.size() - 1);
+                                        Prefijo.add(r);
+                                        resultado+= r + "\n";
+                                        OA_AuxE1.set(n1, "YA_No");
+                                    }
+                                    if(m == 0){
+                                        int n1 = m;
+                                        int n2 = m + 2;
+                                        String p1 = OA_AuxE.get(n1);
+                                        String p2 = OA_AuxE.get(n2);
+                                        String p3 = "-";
+                                        OA_AuxE.add(p3+p1+p2);
+                                        String r = OA_AuxE.get(OA_AuxE.size() - 1);
+                                        Prefijo.add(r);
+                                        resultado+= r + "\n";
+                                        OA_AuxE1.set(n1, "YA_No");
+                                    }
+                                    if(!OA_AuxE1.contains("+") && !OA_AuxE1.contains("-")){
+                                        String f1 = OA_AuxE.get(OA_AuxE.size() - 1);
+                                        Prefijo.add(f1);
+                                        String i2 = PrefijoF.get(PrefijoF.size() -1);
+                                        resultado+= "=" + i2 + " " + f1;
+                                        Prefijo.clear();
+                                        OA_AuxE1.clear();
+                                        OA_AuxE.clear();
+                                        PrefijoListo.clear();
+                                }
+                            }
+                                    
+                            
                             
                         }
                         
@@ -547,12 +591,12 @@ public static void main(String[] args) throws IOException {
                            
                         }
                         //Esto "Esta bien"
-                        if(OA_AuxE.isEmpty()){
+                        if(OA_AuxE1.isEmpty()){
                           String i = PrefijoF.get(PrefijoF.size() -1);
                             resultado+= "\n" + "=" + i + p + "7u7";
-                            break;  
+                              
                         }
-                        
+                        break;
                     case AS:
                         resultado+= "";
                     break;
