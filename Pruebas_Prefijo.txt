@@ -1,12 +1,9 @@
 Linea   Operador      Dato Fuente     Dato Objeto  
-=m+       23
-/9045
--/9045
-/1876
-+23/9045
--+23/9045/1876
-=m -+23/9045/1876
+=r
 1
-=mm
-=mm
+=r23.1
+=nbuen camino
+2
+=n23.2
+
 FIN
