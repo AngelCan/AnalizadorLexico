@@ -1,21 +1,9 @@
 Linea   Operador      Dato Fuente     Dato Objeto  
-=r+       23
-/9040
--/9040
-*1855
-+23/9040
--+23/9040*1855
-=r -+23/9040*1855
+=r
 1
-=rr
-=nIDES0                    n         linea 1       Incompatibilidad de tipos
-+       23.1
-/90.240.3
--/90.240.3
-+23.1/90.240.3
--+23.1/90.240.318.4
-=n -+23.1/90.240.318.4
+=r23.1
+=nbuen camino
 2
-=n18.4
+=n23.2
 
 FIN

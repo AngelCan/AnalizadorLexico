@@ -132,8 +132,7 @@ public static void main(String[] args) throws IOException {
                                     String p = Prefijo.get(Prefijo.size() - 1);
                                     PrefijoF.add(p);
                                     resultado += "=" + p;
-                                    
-                                    if(!OA1.isEmpty()){
+                                                                        if(!OA1.isEmpty()){
                                         String a = TD1.get(TD1.size() - 1);
                                         String b = OA1.get(OA1.size() - 1);
                                         
@@ -141,7 +140,7 @@ public static void main(String[] args) throws IOException {
                                             //Para realizar el seguimiento, usar hola entre las comillas
                                             /*
                                             resultado += a + b + ""; */
-                                            
+                                           
                                             
                                         } else{
                                             resultado+= "IDES" + Error.size() + "                    " + lexer.lexeme + "         " +   "linea " +  Cont.size() + "       " + "Incompatibilidad de tipos\n";
@@ -160,9 +159,19 @@ public static void main(String[] args) throws IOException {
                             
                             }
                             else{
-                            /* Usar para realizar seguimiento    
-                            resultado += lexer.lexeme + ID1.lastIndexOf(lexer.lexeme); */
-                            
+                            // COMENZAR A TRABAJAR EN LAS SUMAS CON ID PARA CN Y CNE
+                                    if(!OA2.isEmpty()){
+                                        String t1 = TD1.get(TD1.size() -1);
+                                        resultado += "buen camino";
+                                        if(t1 == "int"){
+                                            resultado+="flag";
+                                        }
+                                        if(t1 == "double"){
+                                            resultado+= "Is a flag";
+                                        }    
+                                        }
+                                        
+
                                 
                             
                             }
