@@ -39,8 +39,12 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> OA1 = new ArrayList<String>();
     ArrayList<String> OA2 = new ArrayList<String>();
     ArrayList<String> Cont = new ArrayList<String>();
+    //CNE
     ArrayList<String> Prefijo = new ArrayList<String>();
     ArrayList<String> PrefijoListo = new ArrayList<String>();
+    //CN
+    ArrayList<String> Prefijo1 = new ArrayList<String>();
+    ArrayList<String> PrefijoListo1 = new ArrayList<String>();
     
     ArrayList<String> Dato_Objeto = new ArrayList<String>();
     ArrayList<String> Dato_ObjetoAux = new ArrayList<String>();
@@ -58,6 +62,7 @@ public static void main(String[] args) throws IOException {
     //Contiene las últimas 2 cosas que guardo prefijo y el OA actual
     ArrayList<String> OA_AuxE = new ArrayList<String>();
     ArrayList<String> OA_AuxE1 = new ArrayList<String>();
+    ArrayList<String> OA4 = new ArrayList<String>();
     
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
@@ -266,166 +271,63 @@ public static void main(String[] args) throws IOException {
                     case CN:
                         if(TD1.contains("int") && TD1.size() == ID1.size()){
                             Valor.add(lexer.lexeme);
-                            Prefijo.add(lexer.lexeme);
-                            String p = Prefijo.get(Prefijo.size() - 1);
+                            Prefijo1.add(lexer.lexeme);
+                            String p = Prefijo1.get(Prefijo1.size() - 1);
                             //resultado+= p + "hola2";
                             /* Usar para realizar seguimiento
                             resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
                             if(!OA1.isEmpty()){
-                                
-                                if(OA3.contains("YES")){
-                                    if(OA2.contains("*") || OA2.contains("/")){
-                                   
-                                    
-                                    String p1 = Prefijo.get(Prefijo.size() - 1);
-                                    String p2 = Prefijo.get(Prefijo.size() - 2);
-                                    
+                                if(OA2.contains("*") || OA2.contains("/")){
+                                    String p1 = Prefijo1.get(Prefijo1.size() - 1);
+                                    String p2 = Prefijo1.get(Prefijo1.size() - 2);
                                     String p3 = OA2.get(OA2.size() - 1);
-                                    
-                                    OA2.set(OA2.size() - 1, "THIS");
-                                    OA_Aux1.add(p3+p2+p1);
-                                    String r = OA_Aux1.get(OA_Aux1.size() - 1);
-                                    
+                                    Prefijo1.add(p3+p2+p1);
+                                    String r = Prefijo1.get(Prefijo1.size() - 1);
                                     OA3.add(r);
-                                    int l = OA_Aux1.size();
-                                    int l2 = OA2.size();
-                                    resultado+= l + "   " + l2 + "     " + r + "\n";
-                                    
-                                            //Probar sin * y sin /
-                                            /*
-                                            String p11 = Prefijo.get(Prefijo.size() - 1);
-                                            String p21 = Prefijo.get(Prefijo.size() - 2);
-                                    
-                                            String p31 = OA2.get(OA2.size() - 1);
-                                    
-                                            Prefijo.add(p31+p21+p11);
-                                            String r1 = Prefijo.get(Prefijo.size() - 1);
-                                    
-                                            resultado+= r1 + "\n";
-                                            */
-                                            
-                                    if(OA2.contains("THIS")){
-                                        String r3 = OA_Aux1.get(OA_Aux1.size() - 1);
-                                        Prefijo.remove(Prefijo.size() - 1);
-                                        OA2.remove("THIS");
-                                        Prefijo.set(Prefijo.size() - 1, r3);
-                                    }
-                                            
-                                    
-                                    }
-                              
-                                    if((OA2.contains("+") || OA2.contains("-")) && !OA_Aux1.isEmpty()){
-                                        String p11 = Prefijo.get(Prefijo.size() - 1);
-                                        String p21 = Prefijo.get(Prefijo.size() - 2);
-                                    
-                                        String p31 = OA2.get(OA2.size() - 1);
-                                        OA2.set(OA2.size() - 1, "THIS2");
-                                        OA_Aux2.add(p31+p21+p11);
-                                        
-                                        OA_AuxE.add(p21);
-                                        OA_AuxE.add(p31);
-                                        OA_AuxE.add(p11);
-                                        
-                                        String r1 = OA_Aux2.get(OA_Aux2.size() - 1);
-                                        
-                                        resultado+= r1 + "\n";
-                                    }
-                                
-                                    if(OA2.contains("THIS2")){
-                                        String r2 = OA_Aux2.get(OA_Aux2.size() - 1);
-                                        Prefijo.remove(Prefijo.size() - 1);
-                                        OA2.remove("THIS2");
-                                        Prefijo.set(Prefijo.size() - 1, r2);
-                                    }
-                                    
-                                if((OA2.contains("*") || OA2.contains("/")) && !OA_Aux2.isEmpty()){
-                                        //Guarda lo encontrado en OA_AuxE
-                                        String p1 = Prefijo.get(Prefijo.size() - 1);
-                                        String p2 = OA_AuxE.get(OA_AuxE.size() - 1);
-                                    
-                                        String p3 = OA2.get(OA2.size() - 1);
-                                    
-                                        OA2.set(OA2.size() - 1, "THIS");
-                                        OA_AuxE.add(p3+p2+p1);
-                                        String r = OA_AuxE.get(OA_AuxE.size() - 1);
-                                        
-                                        int l = OA_Aux1.size();
-                                        int l2 = OA2.size();
-                                        resultado+= l + "   " + l2 + "     " + r + "\n";
-                                    
-                                    
-                                            
-                                    if(OA2.contains("THIS")){
-                                        String r3 = OA_Aux1.get(OA_Aux1.size() - 1);
-                                        Prefijo.remove(Prefijo.size() - 1);
-                                        OA2.remove("THIS");
-                                        Prefijo.set(Prefijo.size() - 1, r3);
-                                    }
-                                            
-                                    
-                                    }
-                              
-                                    if((OA2.contains("+") || OA2.contains("-")) && !OA_Aux1.isEmpty()){
-                                        
-                                        String p11 = Prefijo.get(Prefijo.size() - 1);
-                                        String p21 = Prefijo.get(Prefijo.size() - 2);
-                                    
-                                        String p31 = OA2.get(OA2.size() - 1);
-                                        
-                                        OA2.set(OA2.size() - 1, "THIS2");
-                                        OA_Aux2.add(p31+p21+p11);
-                                        
-                                        OA_AuxE.add(p21);
-                                        OA_AuxE.add(p31);
-                                        OA_AuxE.add(p11);
-                                        
-                                        String r1 = OA_Aux2.get(OA_Aux2.size() - 1);
-                                        
-                                        resultado+= r1 + "\n";
-                                    }
-                                    
-                                    if(OA2.contains("THIS2")){
-                                        String r2 = OA_Aux2.get(OA_Aux2.size() - 1);
-                                        Prefijo.remove(Prefijo.size() - 1);
-                                        OA2.remove("THIS2");
-                                        Prefijo.set(Prefijo.size() - 1, r2);
-                                    }
-                                        
-                                        
-                                        
-                                       
-                                } 
-                            }
-                                //ESto si funciona bien
-                                
-                                
-                                
-                                // TRABAJAR CON ESTO MAÑANA
-                                
-                                if(!OA3.contains("YES")){
-                                    if((OA2.contains("+") || OA2.contains("-")) && OA_Aux1.isEmpty()){
-                                        String p11 = Prefijo.get(Prefijo.size() - 1);
-                                        String p21 = Prefijo.get(Prefijo.size() - 2);
-                                        
-                                        //Prueba noviembre 5
-                                        
-                                    
-                                        String p31 = OA2.get(OA2.size() - 1);
-                                        OA2.set(OA2.size() - 1, "THIS2");
-                                        OA_Aux2.add(p31+p21+p11);
-                                        String r1 = OA_Aux2.get(OA_Aux2.size() - 1);
-                                    
-                                        resultado+= r1 + "\n";
-                                    }
-                                
-                                    if(OA2.contains("THIS2")){
-                                        String r2 = OA_Aux2.get(OA_Aux2.size() - 1);
-                                        Prefijo.remove(Prefijo.size() - 1);
-                                        OA2.remove("THIS2");
-                                        Prefijo.set(Prefijo.size() - 1, r2);
-                                    }
+                                    OA_Aux1.add(r);
+                                    OA2.set(OA2.size() - 1, "No");
+                                    resultado+= r + "\n";
                                 }
+                                
+                                if((OA2.contains("+") || OA2.contains("-")) && OA_Aux1.isEmpty()){
+                                    String p1 = Prefijo1.get(Prefijo1.size() - 2);
+                                    String p3 = OA2.get(OA2.size() - 1);
+                                    OA4.add(p3);
+                                    OA3.add(p1);
+                                    String m = OA4.get(OA4.size() - 1);
+                                    String n = OA3.get(OA3.size() - 1);
+                                    OA2.set(OA2.size() - 1, "No");
+                                    resultado+= m +"       " + n + "\n";
+                                    
+                                }
+                                
+                                if(OA2.contains("+") && !OA_Aux1.isEmpty()){
+                                
+                                        String p1 = Prefijo1.get(Prefijo1.size() - 2);
+                                        
+                                        String p3 = OA2.get(OA2.size() - 1);
+                                        OA4.add(p3);
+                                        OA3.add(p1);
+                                        String m = OA4.get(OA4.size() - 1);
+                                        String n = OA3.get(OA3.size() - 1);
+                                        OA2.set(OA2.size() - 1, "No");
+                                        resultado+= m + n + "\n";
+                                    
+                                }
+                                if( OA2.contains("-") && !OA_Aux1.isEmpty()){
+                                
+                                        String p1 = Prefijo1.get(Prefijo1.size() - 2);
+                                        String p3 = OA2.get(OA2.size() - 1);
+                                        OA4.add(p3);
+                                        OA3.add(p1);
+                                        String m = OA4.get(OA4.size() - 1);
+                                        String n = OA3.get(OA3.size() - 1);
+                                        OA2.set(OA2.size() - 1, "No");
+                                        resultado+= m + n + "\n";
+                                    
+                                }
+                            }
                                 
                                 // AQUI TERMINA ESA SECCION CON LA CUAL TRABAJAR
                             
@@ -453,7 +355,10 @@ public static void main(String[] args) throws IOException {
                         PrefijoListo.add(Pl);
                         String p = PrefijoListo.get(PrefijoListo.size() - 1);
                         
-                        
+                        String Plcne = Prefijo1.get(Prefijo1.size() - 1);
+                        PrefijoListo1.add(Plcne);
+                        String pcne = PrefijoListo.get(PrefijoListo1.size() - 1);
+                        // PARA CNE
                         if(!OA_AuxE.isEmpty()){
                             
                             OA_AuxE.add(Pl);
@@ -574,7 +479,127 @@ public static void main(String[] args) throws IOException {
                             
                             
                         }
-                        
+                        // PARA CN
+                        if(!OA3.isEmpty()){
+                            
+                            OA3.add(Plcne);
+                            
+                            int f = OA4.size();
+                            int f2 = f - 1;
+                           
+                            if(f != 0 && f != 1){
+                                for(int i = 0; i < f2; i++){
+                                
+                                
+                                
+                                if(OA4.contains("+") || OA4.contains("-")){
+                                    int n = OA4.indexOf("+");
+                                    int m = OA4.indexOf("-");
+                                    
+                                    if(n == 0){
+                                        int n1 = n;
+                                        int n2 = n + 2;
+                                        String p1 = OA3.get(n1);
+                                        String p2 = OA3.get(n2);
+                                        String p3 = "+";
+                                        OA3.add(p3+p1+p2);
+                                        String r = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(r);
+                                        resultado+= r + "\n";
+                                        OA4.set(n1, "YA_No");
+                                    }
+                                    if(m == 0){
+                                        int n1 = m;
+                                        int n2 = m + 2;
+                                        String p1 = OA3.get(n1);
+                                        String p2 = OA3.get(n2);
+                                        String p3 = "-";
+                                        OA3.add(p3+p1+p2);
+                                        String r = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(r);
+                                        resultado+= r + "\n";
+                                        OA4.set(n1, "YA_No");
+                                    }
+                                    if((m != 0 && m != 0) && m > n){
+                                        int n1 = m;
+                                        
+                                        String p1 = OA3.get(OA3.size() - 1);
+                                        String p2 = OA3.get(OA3.size() - 2);
+                                        String p3 = "-";
+                                        OA3.add(p3+p1+p2);
+                                        String r = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(r);
+                                        resultado+= r + "\n";
+                                        OA4.set(n1, "YA_No"); 
+                                    }
+                                    if((m != 0 && m != 0) && n > m){
+                                        int n11 = m;
+                                        
+                                        String p1 = OA3.get(OA3.size() - 1);
+                                        String p2 = OA3.get(OA3.size() - 2);
+                                        String p3 = "+";
+                                        OA3.add(p3+p1+p2);
+                                        String r = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(r);
+                                        resultado+= r + "\n";
+                                        OA4.set(n11, "YA_No");
+                                    }
+                                    
+                                }
+                                if(!OA4.contains("+") && !OA4.contains("-")){
+                                    String f1 = OA3.get(OA3.size() - 1);
+                                    Prefijo1.add(f1);
+                                    String i2 = PrefijoF.get(PrefijoF.size() -1);
+                                    resultado+= "=" + i2 + " " + f1;
+                                    Prefijo1.clear();
+                                    OA4.clear();
+                                    OA3.clear();
+                                    PrefijoListo1.clear();
+                                }
+                            }
+                            } if(f == 1){
+                                int n = OA4.indexOf("+");
+                                int m = OA4.indexOf("-");
+                                   
+                                    if(n == 0){
+                                        int n1 = n;
+                                        int n2 = n + 2;
+                                        String p1 = OA3.get(n1);
+                                        String p2 = OA3.get(n2);
+                                        String p3 = "+";
+                                        OA3.add(p3+p1+p2);
+                                        String r = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(r);
+                                        resultado+= r + "\n";
+                                        OA4.set(n1, "YA_No");
+                                    }
+                                    if(m == 0){
+                                        int n1 = m;
+                                        int n2 = m + 2;
+                                        String p1 = OA3.get(n1);
+                                        String p2 = OA3.get(n2);
+                                        String p3 = "-";
+                                        OA3.add(p3+p1+p2);
+                                        String r = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(r);
+                                        resultado+= r + "\n";
+                                        OA4.set(n1, "YA_No");
+                                    }
+                                    if(!OA4.contains("+") && !OA4.contains("-")){
+                                        String f1 = OA3.get(OA3.size() - 1);
+                                        Prefijo1.add(f1);
+                                        String i2 = PrefijoF.get(PrefijoF.size() -1);
+                                        resultado+= "=" + i2 + " " + f1;
+                                        Prefijo1.clear();
+                                        OA4.clear();
+                                        OA3.clear();
+                                        PrefijoListo1.clear();
+                                }
+                            }
+                                    
+                            
+                            
+                        }
                         
                         //Cambiar de lugar, esta comparación no se debe de hacer solo en el caso de separador
                         if(Dato_Objeto.size() == Dato_Fuente.size() && Dato_Fuente.size() == Operador.size()){
@@ -593,7 +618,12 @@ public static void main(String[] args) throws IOException {
                         //Esto "Esta bien"
                         if(OA_AuxE1.isEmpty()){
                           String i = PrefijoF.get(PrefijoF.size() -1);
-                            resultado+= "\n" + "=" + i + p + "7u7";
+                          resultado+= "\n" + "=" + i + p;
+                              
+                        }
+                        if(OA4.isEmpty()){
+                          String i = PrefijoF.get(PrefijoF.size() -1);
+                          resultado+= "\n" + "=" + i + p;
                               
                         }
                         break;
