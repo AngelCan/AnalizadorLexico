@@ -1,9 +1,16 @@
 Linea   Operador      Dato Fuente     Dato Objeto  
-=r
+=n
 1
-=r23.1
-=nbuen camino
-2
-=n23.2
+=n3.1
+!=16.3n
+&&!=16.3n
+&&!=16.3n!=3.5n
 
-FIN
+2
+=n3.5
+=r
+2
+=r23.1
+
+2
+=r23.1FIN
