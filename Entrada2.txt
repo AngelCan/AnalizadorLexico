@@ -1,3 +1,4 @@
-double r = 23.1;
-double n =  23.2 + r;
-
+double n = 3.1;
+if(n != 16.3 && n != 3.5){
+ double r = 23.1;
+}

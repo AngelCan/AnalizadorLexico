@@ -64,6 +64,11 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> OA_AuxE1 = new ArrayList<String>();
     ArrayList<String> OA4 = new ArrayList<String>();
     
+    ArrayList<String> ID_Aux = new ArrayList<String>();
+    
+    ArrayList<String> OR1 = new ArrayList<String>();
+    ArrayList<String> OL1 = new ArrayList<String>();
+    
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
@@ -132,7 +137,8 @@ public static void main(String[] args) throws IOException {
                                     String p = Prefijo.get(Prefijo.size() - 1);
                                     PrefijoF.add(p);
                                     resultado += "=" + p;
-                                                                        if(!OA1.isEmpty()){
+                                    // AQUI SE AGREGA LO QUE HAY DESPUÉS DEL SIGNO "=" A T1(SE AGREGA A LA COLUMNA QUE LLEVA T1)
+                                    if(!OA1.isEmpty()){
                                         String a = TD1.get(TD1.size() - 1);
                                         String b = OA1.get(OA1.size() - 1);
                                         
@@ -160,16 +166,62 @@ public static void main(String[] args) throws IOException {
                             }
                             else{
                             // COMENZAR A TRABAJAR EN LAS SUMAS CON ID PARA CN Y CNE
+                                ID_Aux.add(lexer.lexeme);
                                     if(!OA2.isEmpty()){
-                                        String t1 = TD1.get(TD1.size() -1);
-                                        resultado += "buen camino";
-                                        if(t1 == "int"){
-                                            resultado+="flag";
+                                        
+                                        // resultado += "buen camino" + t1;
+                                        
+                                        String n1 = ID_Aux.get(ID_Aux.size() - 1);
+                                        resultado += n1;
+                                        if(TD1.contains("double")){
+                                            if(OA2.contains("*") || OA2.contains("/")){
+                                                String p1 = Prefijo.get(Prefijo.size() - 1);
+                                                
+                                                String p3 = OA2.get(OA2.size() - 1);
+                                                Prefijo.add(p3+n1+p1);
+                                                String r = Prefijo.get(Prefijo.size() - 1);
+                                                OA_AuxE.add(r);
+                                                OA_Aux2.add(r);
+                                                OA2.set(OA2.size() - 1, "No");
+                                                resultado+= r + "\n"; 
+                                            }
+                                            if(OA2.contains("+") || OA2.contains("-")){
+                                                String f = Prefijo.get(Prefijo.size() - 1);
+                                                String o = OA2.get(OA2.size() -1);
+                                                
+                                                Prefijo.add(n1);
+                                                OA_AuxE1.add(f);
+                                                OA_AuxE.add(o);
+                                                
+                                                String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
+                                                String n = OA_AuxE.get(OA_AuxE.size() - 1);
+                                                OA2.set(OA2.size() - 1, "No");
+                                                resultado+= m +"       " + n + "\n";
+                                                
+                                            }    
                                         }
-                                        if(t1 == "double"){
-                                            resultado+= "Is a flag";
+                                        if(TD1.contains("int")){
+                                            if(OA2.contains("*") || OA2.contains("/")){
+                                                String p1 = Prefijo1.get(Prefijo1.size() - 1);
+                                                
+                                                String p3 = OA2.get(OA2.size() - 1);
+                                                Prefijo1.add(p3+n1+p1);
+                                                String r = Prefijo1.get(Prefijo1.size() - 1);
+                                                OA3.add(r);
+                                                OA_Aux1.add(r);
+                                                OA2.set(OA2.size() - 1, "No");
+                                                resultado+= r + "\n";
+                                            }
+                                            if(OA2.contains("*") || OA2.contains("/")){
+                                                String f = Prefijo.get(Prefijo.size() - 1);
+                                                String o = OA2.get(OA2.size() -1);
+                                                
+                                                Prefijo.add(n1);
+                                                OA3.add(f);
+                                                OA4.add(o);
+                                            }
                                         }    
-                                        }
+                                    }
                                         
 
                                 
@@ -193,6 +245,9 @@ public static void main(String[] args) throws IOException {
                             String p = Prefijo.get(Prefijo.size() - 1);
                             
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
+                            if(!OR1.isEmpty()){
+                                Prefijo.add(lexer.lexeme);
+                            }
                             if(!OA1.isEmpty()){
                                 if(OA2.contains("*") || OA2.contains("/")){
                                     String p1 = Prefijo.get(Prefijo.size() - 1);
@@ -286,6 +341,9 @@ public static void main(String[] args) throws IOException {
                             /* Usar para realizar seguimiento
                             resultado += lexer.lexeme +  Valor.size()  + " " + "\n" ; */
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
+                            if(!OR1.isEmpty()){
+                                Prefijo.add(lexer.lexeme);
+                            }
                             if(!OA1.isEmpty()){
                                 if(OA2.contains("*") || OA2.contains("/")){
                                     String p1 = Prefijo1.get(Prefijo1.size() - 1);
@@ -646,6 +704,43 @@ public static void main(String[] args) throws IOException {
                           String i = PrefijoF.get(PrefijoF.size() -1);
                           resultado+= "\n" + "=" + i + p;
                               
+                        }
+                        
+                        break;
+                    case OL:
+                        if(!OL1.isEmpty()){
+                            OL1.add(lexer.lexeme);
+                            int n = OL1.size();
+                            if(n == 2){
+                                String m = OL1.get(OL1.size() - 1);
+                                String m2 = OL1.get(OL1.size() - 2);
+                                OL1.add(m + m2);
+                                //resultado+= m + "Flag\n"; 
+                                resultado+= m + m2 + "\n";
+                            }
+                            
+                        }
+                        
+                        break;
+                    case OR:
+                        OR1.add(lexer.lexeme);
+                        if(OL1.isEmpty()){
+                            //OR1.add(lexer.lexeme);
+                            String m = Prefijo.get(Prefijo.size() - 1);
+                            String l = ID1.get(ID1.size() - 1);
+                            String o = OR1.get(OR1.size() - 1);
+                            OL1.add(o + m + l );
+                            String c = OL1.get(OL1.size() - 1);
+                            resultado+= c + "\n";
+                        }else{
+                            //OR1.add(lexer.lexeme);
+                            String m = Prefijo.get(Prefijo.size() - 1);
+                            String l = ID1.get(ID1.size() - 1);
+                            String o = OR1.get(OR1.size() - 1);
+                            OL1.add(o + m + l );
+                            String g = OL1.get(OL1.size() - 1);
+                            String g1 = OL1.get(OL1.size() - 2);
+                            resultado+= g1 + g + "\n";
                         }
                         
                         break;
