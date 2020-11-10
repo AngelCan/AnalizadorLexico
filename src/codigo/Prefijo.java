@@ -247,6 +247,25 @@ public static void main(String[] args) throws IOException {
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
                             if(!OR1.isEmpty()){
                                 Prefijo.add(lexer.lexeme);
+                                if(OL1.isEmpty()){
+                            
+                                    String m = Prefijo.get(Prefijo.size() - 1);
+                                    String l = ID1.get(ID1.size() - 1);
+                                    String o = OR1.get(OR1.size() - 1);
+                                    OL1.add(o + m + l );
+                                    String c = OL1.get(OL1.size() - 1);
+                                    resultado+= c + "\n";
+                                }else{
+                           
+                                    String m = Prefijo.get(Prefijo.size() - 1);
+                                    String l = ID1.get(ID1.size() - 1);
+                                    String o = OR1.get(OR1.size() - 1);
+                                    OL1.add(o + m + l );
+                                    String g = OL1.get(OL1.size() - 1);
+                                    String g1 = OL1.get(OL1.size() - 2);
+                                    resultado+= g1 + g + "\n";
+                                    
+                                }
                             }
                             if(!OA1.isEmpty()){
                                 if(OA2.contains("*") || OA2.contains("/")){
@@ -723,27 +742,18 @@ public static void main(String[] args) throws IOException {
                         
                         break;
                     case OR:
+                        
                         OR1.add(lexer.lexeme);
-                        if(OL1.isEmpty()){
-                            //OR1.add(lexer.lexeme);
-                            String m = Prefijo.get(Prefijo.size() - 1);
-                            String l = ID1.get(ID1.size() - 1);
-                            String o = OR1.get(OR1.size() - 1);
-                            OL1.add(o + m + l );
-                            String c = OL1.get(OL1.size() - 1);
-                            resultado+= c + "\n";
-                        }else{
-                            //OR1.add(lexer.lexeme);
-                            String m = Prefijo.get(Prefijo.size() - 1);
-                            String l = ID1.get(ID1.size() - 1);
-                            String o = OR1.get(OR1.size() - 1);
-                            OL1.add(o + m + l );
-                            String g = OL1.get(OL1.size() - 1);
-                            String g1 = OL1.get(OL1.size() - 2);
-                            resultado+= g1 + g + "\n";
+
+                        break;
+                    case DEL:
+                        if(!OL1.isEmpty() && !OR1.isEmpty()){
+                            OL1.clear();
+                            OR1.clear();
+                            
                         }
                         
-                        break;
+                    break;
                     case AS:
                         resultado+= "";
                     break;
