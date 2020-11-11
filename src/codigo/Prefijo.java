@@ -49,6 +49,8 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> Dato_Objeto = new ArrayList<String>();
     ArrayList<String> Dato_ObjetoAux = new ArrayList<String>();
     ArrayList<String> Dato_Fuente = new ArrayList<String>();
+    ArrayList<String> Dato_Fuente2 = new ArrayList<String>();
+    ArrayList<String> Dato_ObjetoF = new ArrayList<String>();
     ArrayList<String> Operador = new ArrayList<String>();
     ArrayList<String> Linea = new ArrayList<String>();
     //Contiene el prefijo de las multiplicaciones y divisiones
@@ -77,7 +79,65 @@ public static void main(String[] args) throws IOException {
                 Tokens tokens = lexer.yylex();
                 
             if (tokens == null) {
-                resultado += "FIN";
+                
+                if(!Dato_Fuente2.isEmpty()){
+                            resultado+="Prueba";
+                        } else{
+                            int i = Dato_Objeto.size();
+                            int l = Dato_Fuente.size();
+                            for(int n = i; n < l; n++){
+                                Dato_Objeto.add("T1");
+                                //String p1 = Dato_Fuente.get(Dato_Fuente.size() -1);
+                                //resultado+= "\n" + p1 + "Flag";
+                            }
+                            
+                            if(Dato_Fuente.contains("T1")){
+                                int  s = Dato_Fuente.indexOf("T1");
+                                String s2 = Dato_ObjetoF.get(0);
+                                Dato_Objeto.set(s, s2);
+                                resultado+= "\n" + s;
+                            }
+                            
+                        }
+                if(Dato_Objeto.size() == Dato_Fuente.size() && Dato_Fuente.size() == Operador.size()){
+                           if(Linea.isEmpty()){
+                               Linea.add("1");
+                               String n = Linea.get(Linea.size() - 1);
+                               
+                               String n2 = Operador.get(Linea.size() - 1);
+                               
+                               String n3 = Dato_Fuente.get(Linea.size() -1);
+                               String n4 = Dato_Objeto.get(Linea.size() - 1);
+                               String n1 = n + "         " +n2 +"              " + n4 + "               " + n3;
+                               
+                               resultado+="\n"+ n1;
+                           } 
+                           if(!Linea.isEmpty()){
+                               
+                               //String n = Linea.get(Linea.size() - 1);
+                                    int i = Dato_Objeto.size();
+                                    int i2 = Linea.size();
+                                    for(int n1 = i2; n1 < i; n1++){
+                                        int n = Linea.size();
+                                        int m = n + 1;
+                               
+                                        String n2 = Operador.get(Linea.size());
+                              
+                                        String n3 = Dato_Fuente.get(Linea.size());
+                                        String n4 = Dato_Objeto.get(Linea.size());
+                                        String m1 = n2 +"              " + n4 + "               " + n3; 
+                                            
+                                        resultado+= "\n" + m + "          " + m1;
+                                        Linea.add("+1");
+                                    }
+                               
+                           
+                               
+                           }
+                           
+                        }
+                
+                //resultado += "FIN";
                 
                 File archivo = new File("Pruebas_Prefijo.txt");
                 PrintWriter escribir;
@@ -138,9 +198,9 @@ public static void main(String[] args) throws IOException {
                                     String p = Prefijo.get(Prefijo.size() - 1);
                                     PrefijoF.add(p);
                                     //Primer "=", para asignar un valor a el nuevo id
-                                    Operador.add("=");
-                                    Dato_Objeto.add("T1");
-                                    Dato_Fuente.add(p);
+                                    //Operador.add("=");
+                                    Dato_ObjetoF.add(p);
+                                    //Dato_Fuente.add("T1");  
                                     resultado += "=" + p;
                                     // AQUI SE AGREGA LO QUE HAY DESPUÉS DEL SIGNO "=" A T1(SE AGREGA A LA COLUMNA QUE LLEVA T1)
                                     if(!OA1.isEmpty()){
@@ -293,6 +353,8 @@ public static void main(String[] args) throws IOException {
                                     String p3 = OA2.get(OA2.size() - 1);
                                     OA_AuxE1.add(p3);
                                     OA_AuxE.add(p1);
+                                    Operador.add(p3);
+                                    Dato_Fuente.add(p1);
                                     String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                     String n = OA_AuxE.get(OA_AuxE.size() - 1);
                                     OA2.set(OA2.size() - 1, "No");
@@ -525,6 +587,8 @@ public static void main(String[] args) throws IOException {
                                     Prefijo.add(f1);
                                     String i2 = PrefijoF.get(PrefijoF.size() -1);
                                     resultado+= "=" + i2 + " " + f1;
+                                    Operador.add("=");
+                                    Dato_Fuente.add("T1");
                                     Prefijo.clear();
                                     OA_AuxE1.clear();
                                     OA_AuxE.clear();
@@ -563,11 +627,11 @@ public static void main(String[] args) throws IOException {
                                         String f1 = OA_AuxE.get(OA_AuxE.size() - 1);
                                         Prefijo.add(f1);
                                         String i2 = PrefijoF.get(PrefijoF.size() -1);
-                                        /*
+                                        
                                         Dato_Fuente.add("T1");
-                                        Dato_Objeto.add(i2);
-                                        Operador.add("=");
-                                        */
+                                        //Dato_Objeto.add(i2);
+                                        //Operador.add("=");
+                                        
                                         resultado+= "=" + i2 + " " + f1;
                                         
                                         Prefijo.clear();
@@ -707,35 +771,7 @@ public static void main(String[] args) throws IOException {
                         }
                         
                         //Cambiar de lugar, esta comparación no se debe de hacer solo en el caso de separador
-                        if(Dato_Objeto.size() == Dato_Fuente.size() && Dato_Fuente.size() == Operador.size()){
-                           if(Linea.isEmpty()){
-                               Linea.add("1");
-                               String n = Linea.get(Linea.size() - 1);
-                               
-                               String n2 = Operador.get(Operador.size() - 1);
-                               
-                               String n3 = Dato_Fuente.get(Dato_Fuente.size() - 1);
-                               String n4 = Dato_Objeto.get(Dato_Objeto.size() - 1);
-                               String n1 = n + "         " +n2 +"              " + n3 + "               " + n4;
-                               
-                               resultado+="\n"+ n1;
-                           } else{
-                               //String n = Linea.get(Linea.size() - 1);
-                                    int n = Linea.size();
-                                    int m = n + 1;
-                               
-                                   String n2 = Operador.get(Operador.size() - 1);
-                               
-                                   String n3 = Dato_Fuente.get(Dato_Fuente.size() - 1);
-                                   String n4 = Dato_Objeto.get(Dato_Objeto.size() - 1);
-                                   String m1 = n2 +"              " + n3 + "               " + n4; 
-                               
-                                   resultado+= "\n" + m + "          " + m1;
-                                   Linea.add("+1");
-                               
-                           }
-                           
-                        }
+
                         //Esto "Esta bien"
                         if(OA_AuxE1.isEmpty()){
                           String i = PrefijoF.get(PrefijoF.size() -1);
