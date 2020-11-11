@@ -72,7 +72,7 @@ public static void main(String[] args) throws IOException {
         try {
             Reader lector = new BufferedReader(new FileReader("Entrada2.txt"));
             Lexer lexer = new Lexer(lector);
-            String resultado = "Linea   Operador      Dato Fuente     Dato Objeto  \n";
+            String resultado = "Linea   Operador      Dato Objeto     Dato Fuente   \n";
             while (true) {
                 Tokens tokens = lexer.yylex();
                 
@@ -130,12 +130,17 @@ public static void main(String[] args) throws IOException {
                             if(!ID1.contains(lexer.lexeme)){
                                 
                                 ID1.add(lexer.lexeme);
+                                
                                 if(ID1.size() == TD1.size()){
                                     //Para realizar el seguimiento, usar bien entre las comillas
                                     
                                     Prefijo.add(lexer.lexeme);
                                     String p = Prefijo.get(Prefijo.size() - 1);
                                     PrefijoF.add(p);
+                                    //Primer "=", para asignar un valor a el nuevo id
+                                    Operador.add("=");
+                                    Dato_Objeto.add("T1");
+                                    Dato_Fuente.add(p);
                                     resultado += "=" + p;
                                     // AQUI SE AGREGA LO QUE HAY DESPUÉS DEL SIGNO "=" A T1(SE AGREGA A LA COLUMNA QUE LLEVA T1)
                                     if(!OA1.isEmpty()){
@@ -166,9 +171,9 @@ public static void main(String[] args) throws IOException {
                             }
                             else{
                             // COMENZAR A TRABAJAR EN LAS SUMAS CON ID PARA CN Y CNE
-                                ID_Aux.add(lexer.lexeme);
+                                
                                     if(!OA2.isEmpty()){
-                                        
+                                        ID_Aux.add(lexer.lexeme);
                                         // resultado += "buen camino" + t1;
                                         
                                         String n1 = ID_Aux.get(ID_Aux.size() - 1);
@@ -222,7 +227,10 @@ public static void main(String[] args) throws IOException {
                                             }
                                         }    
                                     }
+                                    if(!OL1.isEmpty()){
+                                        ID_Aux.add(lexer.lexeme);
                                         
+                                    }    
 
                                 
                             
@@ -279,7 +287,7 @@ public static void main(String[] args) throws IOException {
                                     OA2.set(OA2.size() - 1, "No");
                                     resultado+= r + "\n";
                                 }
-                                
+                                //Aqui me genera problemas con el ID cuando hago la suma de cne + id
                                 if((OA2.contains("+") || OA2.contains("-")) && OA_Aux2.isEmpty()){
                                     String p1 = Prefijo.get(Prefijo.size() - 2);
                                     String p3 = OA2.get(OA2.size() - 1);
@@ -555,7 +563,13 @@ public static void main(String[] args) throws IOException {
                                         String f1 = OA_AuxE.get(OA_AuxE.size() - 1);
                                         Prefijo.add(f1);
                                         String i2 = PrefijoF.get(PrefijoF.size() -1);
+                                        /*
+                                        Dato_Fuente.add("T1");
+                                        Dato_Objeto.add(i2);
+                                        Operador.add("=");
+                                        */
                                         resultado+= "=" + i2 + " " + f1;
+                                        
                                         Prefijo.clear();
                                         OA_AuxE1.clear();
                                         OA_AuxE.clear();
@@ -697,24 +711,28 @@ public static void main(String[] args) throws IOException {
                            if(Linea.isEmpty()){
                                Linea.add("1");
                                String n = Linea.get(Linea.size() - 1);
-                               /*
+                               
                                String n2 = Operador.get(Operador.size() - 1);
+                               
                                String n3 = Dato_Fuente.get(Dato_Fuente.size() - 1);
                                String n4 = Dato_Objeto.get(Dato_Objeto.size() - 1);
-                               String n1 = n + n2 + n3 + n4;
-                               */
-                               resultado+="\n" + n;
+                               String n1 = n + "         " +n2 +"              " + n3 + "               " + n4;
+                               
+                               resultado+="\n"+ n1;
                            } else{
                                //String n = Linea.get(Linea.size() - 1);
-                               int n = Linea.size();
-                               int m = n + 1;
-                               /*
-                               String n2 = Operador.get(Operador.size() - 1);
-                               String n3 = Dato_Fuente.get(Dato_Fuente.size() - 1);
-                               String n4 = Dato_Objeto.get(Dato_Objeto.size() - 1);
-                               String m1 = n2 + n3 + n4; 
-                               */
-                               resultado+= "\n" + m;
+                                    int n = Linea.size();
+                                    int m = n + 1;
+                               
+                                   String n2 = Operador.get(Operador.size() - 1);
+                               
+                                   String n3 = Dato_Fuente.get(Dato_Fuente.size() - 1);
+                                   String n4 = Dato_Objeto.get(Dato_Objeto.size() - 1);
+                                   String m1 = n2 +"              " + n3 + "               " + n4; 
+                               
+                                   resultado+= "\n" + m + "          " + m1;
+                                   Linea.add("+1");
+                               
                            }
                            
                         }
@@ -744,7 +762,7 @@ public static void main(String[] args) throws IOException {
                     case OR:
                         
                         OR1.add(lexer.lexeme);
-
+                        
                         break;
                     case DEL:
                         if(!OL1.isEmpty() && !OR1.isEmpty()){
@@ -752,6 +770,7 @@ public static void main(String[] args) throws IOException {
                             OR1.clear();
                             
                         }
+                        
                         
                     break;
                     case AS:
