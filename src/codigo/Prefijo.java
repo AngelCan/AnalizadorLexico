@@ -95,6 +95,8 @@ public static void main(String[] args) throws IOException {
                                 int  s = Dato_Fuente.indexOf("T1");
                                 String s2 = Dato_ObjetoF.get(0);
                                 Dato_Objeto.set(s, s2);
+                                //EL NUMERO QUE MUESTRA ES EL LUGAR DEL ARREGLO, NO DE LA TABLA, PARA TENER EL DE LA TABLA ES EL NUMERO
+                                //MOSTRADO + 1
                                 resultado+= "\n" + s;
                             }
                             
@@ -258,6 +260,9 @@ public static void main(String[] args) throws IOException {
                                                 OA_AuxE1.add(f);
                                                 OA_AuxE.add(o);
                                                 
+                                                Operador.add(f);
+                                                Dato_Fuente.add(o);
+                                                
                                                 String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                                 String n = OA_AuxE.get(OA_AuxE.size() - 1);
                                                 OA2.set(OA2.size() - 1, "No");
@@ -353,7 +358,14 @@ public static void main(String[] args) throws IOException {
                                     String p3 = OA2.get(OA2.size() - 1);
                                     OA_AuxE1.add(p3);
                                     OA_AuxE.add(p1);
-                                    Operador.add(p3);
+                                    //IMPORTANTE PARA GENERAR LOS OA CORRECTOS EN LA TABLA
+                                    if(Operador.isEmpty()){
+                                        Operador.add("=");
+                                    } else {
+                                        String p31 = OA_AuxE1.get(OA_AuxE1.size() - 2);
+                                        Operador.add(p31);
+                                    }
+                                    // FIN DE LA PARTE IMPORTANTE DE LOS OA CORRECTOS
                                     Dato_Fuente.add(p1);
                                     String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                     String n = OA_AuxE.get(OA_AuxE.size() - 1);
@@ -369,6 +381,10 @@ public static void main(String[] args) throws IOException {
                                         String p3 = OA2.get(OA2.size() - 1);
                                         OA_AuxE1.add(p3);
                                         OA_AuxE.add(p1);
+                                        
+                                        Operador.add(p3);
+                                        Dato_Fuente.add(p1);
+                                        
                                         String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                         String n = OA_AuxE.get(OA_AuxE.size() - 1);
                                         OA2.set(OA2.size() - 1, "No");
@@ -382,6 +398,11 @@ public static void main(String[] args) throws IOException {
                                         String p3 = OA2.get(OA2.size() - 1);
                                         OA_AuxE1.add(p3);
                                         OA_AuxE.add(p1);
+                                        
+                                        Operador.add(p3);
+                                        Dato_Fuente.add(p1);
+                                        //Dato_Objeto.add("T1");
+                                        
                                         String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                         String n = OA_AuxE.get(OA_AuxE.size() - 1);
                                         OA2.set(OA2.size() - 1, "No");
@@ -628,9 +649,9 @@ public static void main(String[] args) throws IOException {
                                         Prefijo.add(f1);
                                         String i2 = PrefijoF.get(PrefijoF.size() -1);
                                         
-                                        Dato_Fuente.add("T1");
+                                        Dato_Fuente.add(i2);
                                         //Dato_Objeto.add(i2);
-                                        //Operador.add("=");
+                                        Operador.add("=");
                                         
                                         resultado+= "=" + i2 + " " + f1;
                                         
