@@ -584,10 +584,20 @@ public static void main(String[] args) throws IOException {
                                         String p2 = OA_AuxE.get(OA_AuxE.size() - 2);
                                         String p3 = "-";
                                         OA_AuxE.add(p3+p1+p2);
+                                        
+                                        /*
+                                        String p4 = OA_AuxE.get(OA_AuxE.size() - 1);
+                                        if(p4 != "YA_No"){
+                                            Dato_Fuente.add(p2);
+                                            Operador.add(p3);
+                                        }
+                                        */    
+                                        
+                                        
                                         String r = OA_AuxE.get(OA_AuxE.size() - 1);
                                         Prefijo.add(r);
                                         resultado+= r + "\n";
-                                        OA_AuxE1.set(n1, "YA_No"); 
+                                        OA_AuxE1.set(n1, "YA_No-"); 
                                     }
                                     if((m != 0 && m != 0) && n > m){
                                         int n1 = m;
@@ -596,10 +606,14 @@ public static void main(String[] args) throws IOException {
                                         String p2 = OA_AuxE.get(OA_AuxE.size() - 2);
                                         String p3 = "+";
                                         OA_AuxE.add(p3+p1+p2);
+                                        
+                                        Dato_Fuente.add(p2);
+                                        Operador.add(p3);
+                                        
                                         String r = OA_AuxE.get(OA_AuxE.size() - 1);
                                         Prefijo.add(r);
                                         resultado+= r + "\n";
-                                        OA_AuxE1.set(n1, "YA_No");
+                                        OA_AuxE1.set(n1, "YA_No+");
                                     }
                                     
                                 }
@@ -608,8 +622,18 @@ public static void main(String[] args) throws IOException {
                                     Prefijo.add(f1);
                                     String i2 = PrefijoF.get(PrefijoF.size() -1);
                                     resultado+= "=" + i2 + " " + f1;
-                                    Operador.add("=");
-                                    Dato_Fuente.add("T1");
+                                    
+                                    /*
+                                    Dato_Fuente.add(f1);
+                                    Operador.add(i2);
+                                    */
+                                    String r = OA_AuxE1.get(OA_AuxE1.size() - 1);
+                                    if(r == "YA_No+"){
+                                        Operador.add("+");
+                                    } else{
+                                        Operador.add("-");
+                                    }
+                                    //Dato_Fuente.add("T1");
                                     Prefijo.clear();
                                     OA_AuxE1.clear();
                                     OA_AuxE.clear();
@@ -648,10 +672,14 @@ public static void main(String[] args) throws IOException {
                                         String f1 = OA_AuxE.get(OA_AuxE.size() - 1);
                                         Prefijo.add(f1);
                                         String i2 = PrefijoF.get(PrefijoF.size() -1);
-                                        
-                                        Dato_Fuente.add(i2);
-                                        //Dato_Objeto.add(i2);
-                                        Operador.add("=");
+                                        /*
+                                        String f12 = OA_AuxE1.get(OA_AuxE1.size() - 1);
+                                        Dato_Fuente.add(f1);
+                                        Operador.add(f12);
+                                        */
+                                        //Dato_Fuente.add(i2);
+                                        Dato_Objeto.add(i2);
+                                        Operador.add(f1);
                                         
                                         resultado+= "=" + i2 + " " + f1;
                                         
@@ -796,6 +824,12 @@ public static void main(String[] args) throws IOException {
                         //Esto "Esta bien"
                         if(OA_AuxE1.isEmpty()){
                           String i = PrefijoF.get(PrefijoF.size() -1);
+                          //String p2 = OA2.get(OA2.size() -1);
+                          Dato_Fuente.add(p);
+                          //Operador.add(p2);
+                          
+                          Operador.add("=");
+                          Dato_Fuente.add("T1");
                           resultado+= "\n" + "=" + i + p;
                               
                         }
