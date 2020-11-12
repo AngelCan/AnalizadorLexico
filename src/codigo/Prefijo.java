@@ -81,8 +81,19 @@ public static void main(String[] args) throws IOException {
             if (tokens == null) {
                 
                 if(!Dato_Fuente2.isEmpty()){
-                            resultado+="Prueba";
-                        } else{
+                    if(Operador.contains("*") || Operador.contains("/")){
+                        int  s = Operador.indexOf("*");
+                        int  s1 = Operador.indexOf("/");
+                        String s2 = "T2";
+                        Dato_Objeto.set(s, s2);
+                        Dato_Objeto.set(s1, s2);
+                                //EL NUMERO QUE MUESTRA ES EL LUGAR DEL ARREGLO, NO DE LA TABLA, PARA TENER EL DE LA TABLA ES EL NUMERO
+                                //MOSTRADO + 1
+                        resultado+= "\n" + s;
+                         
+                    }
+                    
+                } else{
                             int i = Dato_Objeto.size();
                             int l = Dato_Fuente.size();
                             for(int n = i; n < l; n++){
@@ -249,6 +260,10 @@ public static void main(String[] args) throws IOException {
                                                 String r = Prefijo.get(Prefijo.size() - 1);
                                                 OA_AuxE.add(r);
                                                 OA_Aux2.add(r);
+                                                
+                                                Operador.add(p3);
+                                                Dato_Fuente.add(p1);
+                                                
                                                 OA2.set(OA2.size() - 1, "No");
                                                 resultado+= r + "\n"; 
                                             }
@@ -349,6 +364,17 @@ public static void main(String[] args) throws IOException {
                                     String r = Prefijo.get(Prefijo.size() - 1);
                                     OA_AuxE.add(r);
                                     OA_Aux2.add(r);
+                                    
+                                    //IMPORTANTE PARA GENERAR LOS OA CORRECTOS EN LA TABLA
+                                    if(Operador.isEmpty()){
+                                        Operador.add("=");
+                                    } else {
+                                        String p31 = OA2.get(OA2.size() - 1);
+                                        Operador.add(p31);
+                                    }
+                                    // FIN DE LA PARTE IMPORTANTE DE LOS OA CORRECTOS
+                                    Dato_Fuente.add(p1);
+                                    
                                     OA2.set(OA2.size() - 1, "No");
                                     resultado+= r + "\n";
                                 }
@@ -697,9 +723,9 @@ public static void main(String[] args) throws IOException {
                         // PARA CN
                         if(!OA3.isEmpty()){
                             
-                            
-                            String pr = OA_Aux1.get(OA_Aux1.size() - 1);
-                            OA3.add(pr);
+                            //REVISAR QUE PASA AQUÍ
+                            //String pr = OA_Aux1.get(OA_Aux1.size() - 1);
+                            //OA3.add(pr);
                             
                             int f = OA4.size();
                             int f2 = f - 1;
