@@ -123,11 +123,15 @@ public static void main(String[] args) throws IOException {
                                 resultado += "\n" + pru;
                                 if(sc != -1 && sc != 1){
                                     if(sa < sb){
+                                        String x  = Dato_Fuente2.get(0);
+                                        int x1 = sa +1;
                                        Dato_Objeto.set(sa, sd);
+                                       Dato_Fuente.set(x1, x);
+                                       
                                        //Operador.add("=");
                                        //Dato_Objeto.add(sd);
                                        //Dato_Fuente.add(sd);
-                                       resultado += sc + "Flag1"; 
+                                       resultado += sc + "Flag1" + x; 
                                     } if(sa > sb){
                                         Dato_Objeto.set(sb, sd);
                                         resultado += sc + "Flag2";
@@ -384,12 +388,24 @@ public static void main(String[] args) throws IOException {
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
                             if(!OR1.isEmpty()){
                                 Prefijo.add(lexer.lexeme);
+                                
+                                //PROBAR SI FUNCIONA
+                                Dato_Fuente.add(lexer.lexeme);
+                                
                                 if(OL1.isEmpty()){
                             
                                     String m = Prefijo.get(Prefijo.size() - 1);
                                     String l = ID1.get(ID1.size() - 1);
                                     String o = OR1.get(OR1.size() - 1);
                                     OL1.add(o + m + l );
+                                    
+                                    //VERIFICAR SI FUNCIONA
+                                    Dato_Fuente.add(m);
+                                    Dato_Fuente.add(l);
+                                    Operador.add("=");
+                                    Operador.add(o);
+                                    //HASTA AQUI
+                                    
                                     String c = OL1.get(OL1.size() - 1);
                                     resultado+= c + "\n";
                                 }else{
@@ -532,6 +548,9 @@ public static void main(String[] args) throws IOException {
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
                             if(!OR1.isEmpty()){
                                 Prefijo.add(lexer.lexeme);
+                                //PROBAR SI FUNCIONA
+                                Dato_Fuente.add(lexer.lexeme);
+                                
                             }
                             if(!OA1.isEmpty()){
                                 if(OA2.contains("*") || OA2.contains("/")){
@@ -922,6 +941,11 @@ public static void main(String[] args) throws IOException {
                                 String m = OL1.get(OL1.size() - 1);
                                 String m2 = OL1.get(OL1.size() - 2);
                                 OL1.add(m + m2);
+                                
+                                Dato_Fuente.add(m);
+                                Dato_Fuente.add(m2);
+                                
+                                
                                 //resultado+= m + "Flag\n"; 
                                 resultado+= m + m2 + "\n";
                             }
