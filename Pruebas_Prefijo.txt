@@ -8,9 +8,16 @@ Linea   Operador      Dato Objeto     Dato Fuente
 =n -+23.3*94.512.5/94.621.1
 =n/94.621.1
 5
+2-2Flag1
+4-2Flag1
+6-2Flag1
+8-2Flag1
+10-2Flag1
+12-2Flag1
+13Flag
 1         =              T1               23.3
-2          *              T1               12.5
+2          *              T2               94.5
 3          -              T1               *94.512.5
-4          /              T1               21.1
+4          /              T1               94.6
 5          -              T1               /94.621.1
 6          =              n               T1
