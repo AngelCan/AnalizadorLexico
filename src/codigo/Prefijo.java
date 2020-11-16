@@ -123,10 +123,13 @@ public static void main(String[] args) throws IOException {
                                 resultado += "\n" + pru;
                                 if(sc != -1 && sc != 1){
                                     if(sa < sb){
+                                        int se = sa -1;
                                         String x  = Dato_Fuente2.get(0);
-                                        int x1 = sa +1;
+                                        int x1 = sa + 1;
                                        Dato_Objeto.set(sa, sd);
-                                       Dato_Fuente.set(x1, x);
+                                       Dato_Objeto.set(se, sd);
+                                       Dato_Fuente.set(sa, x);
+                                       Dato_Fuente.set(x1, sd);
                                        
                                        //Operador.add("=");
                                        //Dato_Objeto.add(sd);
@@ -439,9 +442,14 @@ public static void main(String[] args) throws IOException {
                                         
                                         
                                         String p31 = OA2.get(OA2.size() - 1);
+                                        Operador.add("=");
                                         Operador.add(p31);
                                     }
                                     // FIN DE LA PARTE IMPORTANTE DE LOS OA CORRECTOS
+                                    Dato_Fuente.add(p2);
+                                    Dato_Fuente2.add(p1);
+                                    
+                                    
                                     Dato_Fuente.add(p2);
                                     Dato_Fuente2.add(p1);
                                     
