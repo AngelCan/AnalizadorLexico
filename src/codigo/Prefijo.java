@@ -24,6 +24,7 @@ import codigo.Lexer;
 import static codigo.Tokens.ID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import codigo.FrmPrincipal;
 import static codigo.Tokens.ID;
 import java.io.FileWriter;
@@ -51,6 +52,9 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> Dato_Fuente = new ArrayList<String>();
     ArrayList<String> Dato_Fuente2 = new ArrayList<String>();
     ArrayList<String> Dato_ObjetoF = new ArrayList<String>();
+    
+    ArrayList<String> Inter = new ArrayList<String>();
+    
     ArrayList<String> Operador = new ArrayList<String>();
     ArrayList<String> Linea = new ArrayList<String>();
     //Contiene el prefijo de las multiplicaciones y divisiones
@@ -81,8 +85,78 @@ public static void main(String[] args) throws IOException {
             if (tokens == null) {
                 
                 if(!Dato_Fuente2.isEmpty()){
-                            resultado+="Prueba";
-                        } else{
+                    int i = Dato_Objeto.size();
+                            int l = Dato_Fuente.size();
+                            int l2 = Dato_Fuente.size();
+                            for(int n = i; n < l; n++){
+                                Dato_Objeto.add("T1");
+                                //String p1 = Dato_Fuente.get(Dato_Fuente.size() -1);
+                                //resultado+= "\n" + p1 + "Flag";
+                            }
+                            
+                            if(Dato_Fuente.contains("T1")){
+                                int  s = Dato_Fuente.indexOf("T1");
+                                String s2 = Dato_ObjetoF.get(0);
+                                Dato_Objeto.set(s, s2);
+                                //EL NUMERO QUE MUESTRA ES EL LUGAR DEL ARREGLO, NO DE LA TABLA, PARA TENER EL DE LA TABLA ES EL NUMERO
+                                //MOSTRADO + 1
+                                resultado+= "\n" + s;
+                                
+                                
+                                
+                            }
+                            
+                               if(Operador.contains("*") || Operador.contains("/")){
+                                int sa = Operador.indexOf("*");
+                                    int sb = Operador.indexOf("/");
+                                    int sc = sa - sb;
+                                String sd = "T2";
+                                
+                                
+                                
+                                for(int n = i; n < l2; n++){
+                                    String f1 = Dato_Fuente.get(n);
+                                    String f2 = Operador.get(n);
+                                    Inter.add(f1);
+                                    Inter.add(f2);
+                                    int pru = Inter.size();
+                                resultado += "\n" + pru;
+                                if(sc != -1 && sc != 1){
+                                    if(sa < sb){
+                                        int se = sa -1;
+                                        String x  = Dato_Fuente2.get(0);
+                                        int x1 = sa + 1;
+                                       Dato_Objeto.set(sa, sd);
+                                       Dato_Objeto.set(se, sd);
+                                       Dato_Fuente.set(sa, x);
+                                       Dato_Fuente.set(x1, sd);
+                                       
+                                       //Operador.add("=");
+                                       //Dato_Objeto.add(sd);
+                                       //Dato_Fuente.add(sd);
+                                       resultado += sc + "Flag1" + x + "\n"; 
+                                    } 
+                                    else {
+                                        int se = sb -1;
+                                        String x  = Dato_Fuente2.get(0);
+                                        int x1 = sb + 1;
+                                        Dato_Objeto.set(sb, sd);
+                                        Dato_Objeto.set(se, sd);
+                                        Dato_Fuente.set(sb, x);
+                                        Dato_Fuente.set(x1, sd);
+                                        resultado += sc + "Flag2";
+                                    }
+                                    
+                                }
+                                }    
+                                
+                                //resultado += "\n" + sa + sb +"Flag";
+                            } 
+                            
+                            
+                    
+                    
+                } else{
                             int i = Dato_Objeto.size();
                             int l = Dato_Fuente.size();
                             for(int n = i; n < l; n++){
@@ -249,6 +323,10 @@ public static void main(String[] args) throws IOException {
                                                 String r = Prefijo.get(Prefijo.size() - 1);
                                                 OA_AuxE.add(r);
                                                 OA_Aux2.add(r);
+                                                
+                                                Operador.add(p3);
+                                                Dato_Fuente.add(p1);
+                                                
                                                 OA2.set(OA2.size() - 1, "No");
                                                 resultado+= r + "\n"; 
                                             }
@@ -320,12 +398,24 @@ public static void main(String[] args) throws IOException {
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
                             if(!OR1.isEmpty()){
                                 Prefijo.add(lexer.lexeme);
+                                
+                                //PROBAR SI FUNCIONA
+                                Dato_Fuente.add(lexer.lexeme);
+                                
                                 if(OL1.isEmpty()){
                             
                                     String m = Prefijo.get(Prefijo.size() - 1);
                                     String l = ID1.get(ID1.size() - 1);
                                     String o = OR1.get(OR1.size() - 1);
                                     OL1.add(o + m + l );
+                                    
+                                    //VERIFICAR SI FUNCIONA
+                                    Dato_Fuente.add(m);
+                                    Dato_Fuente.add(l);
+                                    Operador.add("=");
+                                    Operador.add(o);
+                                    //HASTA AQUI
+                                    
                                     String c = OL1.get(OL1.size() - 1);
                                     resultado+= c + "\n";
                                 }else{
@@ -349,6 +439,26 @@ public static void main(String[] args) throws IOException {
                                     String r = Prefijo.get(Prefijo.size() - 1);
                                     OA_AuxE.add(r);
                                     OA_Aux2.add(r);
+                                    
+                                    //IMPORTANTE PARA GENERAR LOS OA CORRECTOS EN LA TABLA
+                                    
+                                    if(Operador.isEmpty()){
+                                        Operador.add("=");
+                                    } else {
+                                        
+                                        
+                                        String p31 = OA2.get(OA2.size() - 1);
+                                        Operador.add("=");
+                                        Operador.add(p31);
+                                    }
+                                    // FIN DE LA PARTE IMPORTANTE DE LOS OA CORRECTOS
+                                    Dato_Fuente.add(p2);
+                                    Dato_Fuente2.add(p1);
+                                    
+                                    
+                                    Dato_Fuente.add(p2);
+                                    Dato_Fuente2.add(p1);
+                                    
                                     OA2.set(OA2.size() - 1, "No");
                                     resultado+= r + "\n";
                                 }
@@ -453,6 +563,9 @@ public static void main(String[] args) throws IOException {
                             //SI EXISTE UN OPERADOR ARITMETICO AGREGAMOS EL ÚLTIMO NUMERO Y EL ANTEPENULTIMO NUMERO EXISTENTE EN EL ARRAY PREFIJO
                             if(!OR1.isEmpty()){
                                 Prefijo.add(lexer.lexeme);
+                                //PROBAR SI FUNCIONA
+                                Dato_Fuente.add(lexer.lexeme);
+                                
                             }
                             if(!OA1.isEmpty()){
                                 if(OA2.contains("*") || OA2.contains("/")){
@@ -697,9 +810,9 @@ public static void main(String[] args) throws IOException {
                         // PARA CN
                         if(!OA3.isEmpty()){
                             
-                            
-                            String pr = OA_Aux1.get(OA_Aux1.size() - 1);
-                            OA3.add(pr);
+                            //REVISAR QUE PASA AQUÍ
+                            //String pr = OA_Aux1.get(OA_Aux1.size() - 1);
+                            //OA3.add(pr);
                             
                             int f = OA4.size();
                             int f2 = f - 1;
@@ -834,6 +947,8 @@ public static void main(String[] args) throws IOException {
                               
                         }
                         
+                        
+                        
                         break;
                     case OL:
                         if(!OL1.isEmpty()){
@@ -843,6 +958,11 @@ public static void main(String[] args) throws IOException {
                                 String m = OL1.get(OL1.size() - 1);
                                 String m2 = OL1.get(OL1.size() - 2);
                                 OL1.add(m + m2);
+                                
+                                //Dato_Fuente.add(m);
+                                //Dato_Fuente.add(m2);
+                                
+                                
                                 //resultado+= m + "Flag\n"; 
                                 resultado+= m + m2 + "\n";
                             }
@@ -864,6 +984,12 @@ public static void main(String[] args) throws IOException {
                         
                         
                     break;
+                    
+                    //Probar si funciona
+                    case IC:
+                        resultado += "IC si funciona";
+                    break;
+                    
                     case AS:
                         resultado+= "";
                     break;
