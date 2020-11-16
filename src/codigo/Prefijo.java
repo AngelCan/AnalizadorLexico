@@ -108,8 +108,8 @@ public static void main(String[] args) throws IOException {
                             
                                if(Operador.contains("*") || Operador.contains("/")){
                                 int sa = Operador.indexOf("*");
-                                int sb = Operador.indexOf("/");
-                                int sc = sa - sb;
+                                    int sb = Operador.indexOf("/");
+                                    int sc = sa - sb;
                                 String sd = "T2";
                                 
                                 
@@ -136,15 +136,21 @@ public static void main(String[] args) throws IOException {
                                        //Dato_Fuente.add(sd);
                                        resultado += sc + "Flag1" + x + "\n"; 
                                     } 
-                                    if(sa > sb){
+                                    else {
+                                        int se = sb -1;
+                                        String x  = Dato_Fuente2.get(0);
+                                        int x1 = sb + 1;
                                         Dato_Objeto.set(sb, sd);
+                                        Dato_Objeto.set(se, sd);
+                                        Dato_Fuente.set(sb, x);
+                                        Dato_Fuente.set(x1, sd);
                                         resultado += sc + "Flag2";
                                     }
                                     
                                 }
                                 }    
                                 
-                                resultado += "\n" + sa + sb +"Flag";
+                                //resultado += "\n" + sa + sb +"Flag";
                             } 
                             
                             
@@ -941,6 +947,8 @@ public static void main(String[] args) throws IOException {
                               
                         }
                         
+                        
+                        
                         break;
                     case OL:
                         if(!OL1.isEmpty()){
@@ -976,6 +984,12 @@ public static void main(String[] args) throws IOException {
                         
                         
                     break;
+                    
+                    //Probar si funciona
+                    case IC:
+                        resultado += "IC si funciona";
+                    break;
+                    
                     case AS:
                         resultado+= "";
                     break;
