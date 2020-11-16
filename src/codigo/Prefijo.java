@@ -131,8 +131,9 @@ public static void main(String[] args) throws IOException {
                                        //Operador.add("=");
                                        //Dato_Objeto.add(sd);
                                        //Dato_Fuente.add(sd);
-                                       resultado += sc + "Flag1" + x; 
-                                    } if(sa > sb){
+                                       resultado += sc + "Flag1" + x + "\n"; 
+                                    } 
+                                    if(sa > sb){
                                         Dato_Objeto.set(sb, sd);
                                         resultado += sc + "Flag2";
                                     }
@@ -942,8 +943,8 @@ public static void main(String[] args) throws IOException {
                                 String m2 = OL1.get(OL1.size() - 2);
                                 OL1.add(m + m2);
                                 
-                                Dato_Fuente.add(m);
-                                Dato_Fuente.add(m2);
+                                //Dato_Fuente.add(m);
+                                //Dato_Fuente.add(m2);
                                 
                                 
                                 //resultado+= m + "Flag\n"; 
