@@ -51,6 +51,9 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> Dato_ObjetoAux = new ArrayList<String>();
     ArrayList<String> Dato_Fuente = new ArrayList<String>();
     ArrayList<String> Dato_Fuente2 = new ArrayList<String>();
+    
+    ArrayList<String> Dato_Fuente_ConMD = new ArrayList<String>();
+    
     ArrayList<String> Dato_ObjetoF = new ArrayList<String>();
     
     ArrayList<String> Inter = new ArrayList<String>();
@@ -59,6 +62,7 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> Operador2 = new ArrayList<String>();
     ArrayList<String> Operador3 = new ArrayList<String>();
     ArrayList<String> Linea = new ArrayList<String>();
+    ArrayList<String> Linea2 = new ArrayList<String>();
     //Contiene el prefijo de las multiplicaciones y divisiones
     ArrayList<String> OA_Aux1 = new ArrayList<String>();
     //Contiene el prefijo de las sumas y restas
@@ -87,10 +91,10 @@ public static void main(String[] args) throws IOException {
             if (tokens == null) {
                 
                 if(!Dato_Fuente2.isEmpty()){
-                    int i = Dato_Objeto.size();
+                    //int i = Dato_Objeto.size();
                             int l = Dato_Fuente.size();
                             int l2 = Dato_Fuente.size();
-                            for(int n = i; n < l; n++){
+                            for(int n = 0; n < l; n++){
                                 Dato_Objeto.add("T1");
                                 //String p1 = Dato_Fuente.get(Dato_Fuente.size() -1);
                                 //resultado+= "\n" + p1 + "Flag";
@@ -111,27 +115,34 @@ public static void main(String[] args) throws IOException {
                             if(!Operador2.isEmpty()){
                                 if(Operador.contains("*")){
                                     Operador2.add("*");
+                                    int w = Operador2.size();
                                     String as = Operador2.get(Operador2.size() -1);
-                                        
-                                    resultado += as + "Flag32";
+                                    String z = Dato_Fuente_ConMD.get(w);
+                                    resultado += w + z + "\n";
                                 }
-                            if(Operador.contains("/")){
-                                Operador2.add("/");
+                                if(Operador.contains("/")){
+                                    Operador2.add("/");
                                         String as = Operador2.get(Operador2.size() -1);
-                                        
-                                        resultado += as + "Flag32";
+                                        int w = Operador2.size();
+                                        String z = Dato_Fuente_ConMD.get(w);
+                                        resultado += w + z + "\n";
                             }
-                            if(Operador.contains("+")){
-                                Operador2.add("+");
-                                String as = Operador2.get(Operador2.size() -1);
-                                        
-                                        resultado += as + "Flag32";
+                                if(Operador.contains("+")){
+                                    Operador2.add("+");
+                                    String as = Operador2.get(Operador2.size() -1);
+                                    
+                                    int w = Operador2.size();    
+                                    String z = Dato_Fuente_ConMD.get(w);
+                                    resultado += w + z + "\n";
                             }
-                            if(Operador.contains("-")){
-                                Operador2.add("-");
-                                String as = Operador2.get(Operador2.size() -1);
-                                        
-                                        resultado += as + "Flag32";
+                                if(Operador.contains("-")){
+                                    Operador2.add("-");
+                                    String as = Operador2.get(Operador2.size() -1);
+                                    
+                                    
+                                    int w = Operador2.size();    
+                                    String z = Dato_Fuente_ConMD.get(w);
+                                    resultado += w + z + "\n";
                             }
                             
                                 int o = Operador2.size();
@@ -150,7 +161,9 @@ public static void main(String[] args) throws IOException {
                                                 Operador3.add(e);
                                                 String r43 = Operador3.get(ed);
                                                 String r45 = Operador3.get(p);
-                                               resultado += r43 + r45 + "Hello"; 
+                                                String r47 = Dato_Fuente_ConMD.get(ed);
+                                                String r48 = Dato_Fuente_ConMD.get(p);
+                                               resultado += r43 + r45 + "Hello" + r47 + "Hello" + r48 + "\n"; 
                                             } else {
                                                 Operador3.add(e);
                                                 resultado += "Hello1";
@@ -159,26 +172,73 @@ public static void main(String[] args) throws IOException {
                                         }
                                         
                                     }
-                                    /*
-                                    Operador3.add(e);
-                                    String r = Operador3.get(p);
-                                    resultado+= r +"   " +  "\n";
-                                    */
+                                    
                                 }
                                 if(!Operador3.isEmpty()){
                                if(Operador2.contains("+")){
                                     Operador3.add("+");
                                     String as = Operador3.get(Operador3.size() -1);
-                                        
-                                        resultado += as + "Flag32";
+                                    String asa = Dato_Fuente_ConMD.get(Operador3.size() -1);
+                                    
+                                        resultado += as + "Flag32" + asa;
                                 }
                                  if(Operador2.contains("-")){
                                     Operador3.add("-");
                                     String as = Operador3.get(Operador3.size() -1);
-                                        
-                                        resultado += as + "Flag32";
+                                    
+                                    String asa = Dato_Fuente_ConMD.get(Operador3.size() -1);    
+                                    
+                                    resultado += as + "Flag32" + asa;
                                 } 
                             }
+                        
+                                int c = Dato_Fuente_ConMD.size();
+                                int co = Operador3.size();
+                                
+                                resultado += "\ncomparacion" + c + co;
+                                
+                        if(Dato_Fuente_ConMD.size() == Operador3.size()){
+                           if(Linea2.isEmpty()){
+                               Linea.add("1");
+                               String n = Linea.get(Linea.size() - 1);
+                               
+                               String n2 = Operador3.get(Linea.size() - 1);
+                               
+                               String n3 = Dato_Fuente_ConMD.get(Linea.size() -1);
+                               String n4 = Dato_Objeto.get(Linea.size() - 1);
+                               String n1 = n + "         " +n2 +"              " + n4 + "               " + n3;
+                               
+                               resultado += "\n" + n + n2 + n3;
+                               
+                               //resultado+="\n"+ n1;
+                           } 
+                           if(!Linea2.isEmpty()){
+                               
+                               //String n = Linea.get(Linea.size() - 1);
+                                    int ir = Dato_Objeto.size();
+                                    int i2 = Linea.size();
+                                    
+                                    for(int n1 = i2; n1 < ir; n1++){
+                                        int n = Linea2.size();
+                                        int m = n + 1;
+                               
+                                        String n2 = Operador3.get(Linea2.size());
+                              
+                                        String n3 = Dato_Fuente_ConMD.get(Linea2.size());
+                                        String n4 = Dato_Objeto.get(Linea2.size());
+                                        String m1 = n2 +"              " + n4 + "               " + n3; 
+                                          resultado +=   "\n" + n + n2 + n3;
+                                        //resultado+= "\n" + m + "          " + m1;
+                                        Linea.add("+1");
+                                        
+                                    }
+                               
+                           
+                               
+                           }
+                           
+                        }
+                                
                             }
                             /*
                                if(Operador.contains("*") || Operador.contains("/")){
@@ -418,6 +478,8 @@ public static void main(String[] args) throws IOException {
                                                 Operador.add(p3);
                                                 Dato_Fuente.add(p1);
                                                 
+                                                Dato_Fuente_ConMD.add(p1);
+                                                
                                                 OA2.set(OA2.size() - 1, "No");
                                                 resultado+= r + "\n"; 
                                             }
@@ -431,6 +493,8 @@ public static void main(String[] args) throws IOException {
                                                 
                                                 Operador.add(f);
                                                 Dato_Fuente.add(o);
+                                                
+                                                Dato_Fuente_ConMD.add(o);
                                                 
                                                 String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                                 String n = OA_AuxE.get(OA_AuxE.size() - 1);
@@ -550,6 +614,10 @@ public static void main(String[] args) throws IOException {
                                     Dato_Fuente.add(p2);
                                     Dato_Fuente2.add(p1);
                                     
+                                    
+                                    Dato_Fuente_ConMD.add(p2);
+                                    Dato_Fuente_ConMD.add(p2);
+                                    
                                     OA2.set(OA2.size() - 1, "No");
                                     resultado+= r + "\n";
                                 }
@@ -569,6 +637,9 @@ public static void main(String[] args) throws IOException {
                                     }
                                     // FIN DE LA PARTE IMPORTANTE DE LOS OA CORRECTOS
                                     Dato_Fuente.add(p1);
+                                    
+                                    Dato_Fuente_ConMD.add(p1);
+                                    
                                     String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                     String n = OA_AuxE.get(OA_AuxE.size() - 1);
                                     OA2.set(OA2.size() - 1, "No");
@@ -587,6 +658,8 @@ public static void main(String[] args) throws IOException {
                                         Operador.add(p3);
                                         Dato_Fuente.add(p1);
                                         
+                                        Dato_Fuente_ConMD.add(p1);
+                                        
                                         String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
                                         String n = OA_AuxE.get(OA_AuxE.size() - 1);
                                         OA2.set(OA2.size() - 1, "No");
@@ -603,6 +676,8 @@ public static void main(String[] args) throws IOException {
                                         
                                         Operador.add(p3);
                                         Dato_Fuente.add(p1);
+                                        
+                                        Dato_Fuente_ConMD.add(p1);
                                         //Dato_Objeto.add("T1");
                                         
                                         String m = OA_AuxE1.get(OA_AuxE1.size() - 1);
@@ -657,6 +732,8 @@ public static void main(String[] args) throws IOException {
                                 Prefijo.add(lexer.lexeme);
                                 //PROBAR SI FUNCIONA
                                 Dato_Fuente.add(lexer.lexeme);
+                                
+                                Dato_Fuente_ConMD.add(lexer.lexeme);
                                 
                             }
                             if(!OA1.isEmpty()){
@@ -814,6 +891,8 @@ public static void main(String[] args) throws IOException {
                                         
                                         Dato_Fuente.add(p2);
                                         Operador.add(p3);
+                                        
+                                        Dato_Fuente_ConMD.add(p2);
                                         
                                         String r = OA_AuxE.get(OA_AuxE.size() - 1);
                                         Prefijo.add(r);
