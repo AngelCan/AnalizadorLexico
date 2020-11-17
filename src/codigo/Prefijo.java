@@ -56,6 +56,8 @@ public static void main(String[] args) throws IOException {
     ArrayList<String> Inter = new ArrayList<String>();
     
     ArrayList<String> Operador = new ArrayList<String>();
+    ArrayList<String> Operador2 = new ArrayList<String>();
+    ArrayList<String> Operador3 = new ArrayList<String>();
     ArrayList<String> Linea = new ArrayList<String>();
     //Contiene el prefijo de las multiplicaciones y divisiones
     ArrayList<String> OA_Aux1 = new ArrayList<String>();
@@ -104,23 +106,98 @@ public static void main(String[] args) throws IOException {
                                 
                                 
                                 
+                            } 
+                            
+                            if(!Operador2.isEmpty()){
+                                if(Operador.contains("*")){
+                                    Operador2.add("*");
+                                    String as = Operador2.get(Operador2.size() -1);
+                                        
+                                    resultado += as + "Flag32";
+                                }
+                            if(Operador.contains("/")){
+                                Operador2.add("/");
+                                        String as = Operador2.get(Operador2.size() -1);
+                                        
+                                        resultado += as + "Flag32";
+                            }
+                            if(Operador.contains("+")){
+                                Operador2.add("+");
+                                String as = Operador2.get(Operador2.size() -1);
+                                        
+                                        resultado += as + "Flag32";
+                            }
+                            if(Operador.contains("-")){
+                                Operador2.add("-");
+                                String as = Operador2.get(Operador2.size() -1);
+                                        
+                                        resultado += as + "Flag32";
                             }
                             
+                                int o = Operador2.size();
+                                resultado += o;
+                                for(int p = 0; p < o; p++){
+                                    
+                                    
+                                    String e = Operador2.get(p);
+                                    int ed = p - 1;
+                                    
+                                    if(e == "*" || e == "/"){
+                                        if(ed != -1){
+                                            String r = Operador2.get(ed);
+                                            if(r != "*" || r != "/"){
+                                                Operador3.add("=");
+                                                Operador3.add(e);
+                                                String r43 = Operador3.get(ed);
+                                                String r45 = Operador3.get(p);
+                                               resultado += r43 + r45 + "Hello"; 
+                                            } else {
+                                                Operador3.add(e);
+                                                resultado += "Hello1";
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    /*
+                                    Operador3.add(e);
+                                    String r = Operador3.get(p);
+                                    resultado+= r +"   " +  "\n";
+                                    */
+                                }
+                                if(!Operador3.isEmpty()){
+                               if(Operador2.contains("+")){
+                                    Operador3.add("+");
+                                    String as = Operador3.get(Operador3.size() -1);
+                                        
+                                        resultado += as + "Flag32";
+                                }
+                                 if(Operador2.contains("-")){
+                                    Operador3.add("-");
+                                    String as = Operador3.get(Operador3.size() -1);
+                                        
+                                        resultado += as + "Flag32";
+                                } 
+                            }
+                            }
+                            /*
                                if(Operador.contains("*") || Operador.contains("/")){
-                                int sa = Operador.indexOf("*");
+                                    int sa = Operador.indexOf("*");
                                     int sb = Operador.indexOf("/");
                                     int sc = sa - sb;
-                                String sd = "T2";
+                                    String sd = "T2";
                                 
                                 
                                 
-                                for(int n = i; n < l2; n++){
-                                    String f1 = Dato_Fuente.get(n);
-                                    String f2 = Operador.get(n);
+                                //for(int n = i; n < l2; n++){
+                                    String f1 = Dato_Fuente.get(i);
+                                    String f2 = Operador.get(i);
                                     Inter.add(f1);
                                     Inter.add(f2);
                                     int pru = Inter.size();
                                 resultado += "\n" + pru;
+                                
+                                
                                 if(sc != -1 && sc != 1){
                                     if(sa < sb){
                                         int se = sa -1;
@@ -131,10 +208,13 @@ public static void main(String[] args) throws IOException {
                                        Dato_Fuente.set(sa, x);
                                        Dato_Fuente.set(x1, sd);
                                        
+                                       Operador2.add("*");
+                                       String as = Operador2.get(Operador2.size() -1);
+                                       
                                        //Operador.add("=");
                                        //Dato_Objeto.add(sd);
                                        //Dato_Fuente.add(sd);
-                                       resultado += sc + "Flag1" + x + "\n"; 
+                                       resultado += sc +  as +"Flag1" + x + "\n"; 
                                     } 
                                     else {
                                         int se = sb -1;
@@ -144,15 +224,26 @@ public static void main(String[] args) throws IOException {
                                         Dato_Objeto.set(se, sd);
                                         Dato_Fuente.set(sb, x);
                                         Dato_Fuente.set(x1, sd);
-                                        resultado += sc + "Flag2";
+                                        
+                                        Operador2.add("/");
+                                        String as = Operador2.get(Operador2.size() -1);
+                                        
+                                        resultado += sc + as + "Flag2";
                                     }
                                     
-                                }
-                                }    
+                                //}
                                 
+                                }    
+                                if(Operador.contains("-") || Operador.contains("+")){
+                                        
+                                        String a = Operador.get(i);
+                                        String b = Dato_Objeto.get(i);
+                                        String c = Dato_Fuente.get(i);
+                                        resultado+= a + b + c +  "Flagjack";
+                                    }
                                 //resultado += "\n" + sa + sb +"Flag";
                             } 
-                            
+                            */
                             
                     
                     
@@ -471,6 +562,7 @@ public static void main(String[] args) throws IOException {
                                     //IMPORTANTE PARA GENERAR LOS OA CORRECTOS EN LA TABLA
                                     if(Operador.isEmpty()){
                                         Operador.add("=");
+                                        Operador2.add(p3);
                                     } else {
                                         String p31 = OA_AuxE1.get(OA_AuxE1.size() - 2);
                                         Operador.add(p31);
