@@ -58,6 +58,14 @@ public static void main(String[] args) throws IOException {
     
     ArrayList<String> Inter = new ArrayList<String>();
     
+    ArrayList<String> Copy = new ArrayList<String>();
+    ArrayList<String> OAC = new ArrayList<String>();
+    ArrayList<String> CopyDF = new ArrayList<String>();
+    ArrayList<String> CopyDO = new ArrayList<String>();
+    ArrayList<String> CopyO = new ArrayList<String>();
+    ArrayList<String> CopyL = new ArrayList<String>();
+    
+    
     ArrayList<String> Operador = new ArrayList<String>();
     ArrayList<String> Operador2 = new ArrayList<String>();
     ArrayList<String> Operador3 = new ArrayList<String>();
@@ -91,6 +99,166 @@ public static void main(String[] args) throws IOException {
             if (tokens == null) {
                 
                 if(!Dato_Fuente2.isEmpty()){
+                    
+                    //REVISAR EL CONTADOR DE LINEAS
+                    if(CopyL.isEmpty()){
+                        CopyL.add("1");
+                        String m = CopyL.get(CopyL.size() -1);
+                        resultado += m + "\n";
+                    } else {
+                        if(!CopyL.isEmpty()){
+                            int c = CopyO.size();
+                            int cl = CopyL.size();
+                            for(int r = cl; r < c; r++){
+                                int r1 = r + 1;
+                           
+                                String m = CopyL.get(CopyL.size() -1);
+                            
+                                resultado += r1 + "            " +  m+ "\n";
+                            }
+                        }
+                    }
+                    // FIN DE REVISAR
+                    
+                    if(!Valor.isEmpty()){
+                        String k = Valor.get(Valor.size() -1);
+                        String j = OAC.get(OAC.size() -1);
+                        
+                        resultado += j + k;  
+                        
+                        int oa = OAC.size();
+                        for(int oa1 = 0; oa1 < oa; oa1++){
+                            if(OAC.contains("*") || OAC.contains("/")){
+                            if(OAC.contains("*") && OAC.contains("/")){
+                                
+                                int fa1 = OAC.indexOf("*");
+                                
+                                int fb1 = OAC.indexOf("/");
+                                if(fa1 < fb1 && fb1 != 0){
+                                    int v = fa1;
+                                    int v1 = fa1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "f\n";
+                                    OAC.set(fa1, "YA");
+                                }
+                            if(fb1 < fa1 && fb1 != 0){
+                                    int v = fb1;
+                                    int v1 = fb1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "f\n";
+                                    OAC.set(fb1, "YA");
+                                }
+                            } else {
+                                if(OAC.contains("*")){
+                                    int fa1 = OAC.indexOf("*");
+                                    int v = fa1;
+                                    int v1 = fa1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "ESTo no es una farsa\n";
+                                    OAC.set(fa1, "YA");
+                                }
+                                if(OAC.contains("/")){
+                                    int fb1 = OAC.indexOf("/");
+                                    int v = fb1;
+                                    int v1 = fb1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "This is just fantasy\n";
+                                    OAC.set(fb1, "YA");
+                                }
+                            }
+                            
+                            
+                                
+                        } else {
+                            if(OAC.contains("+") || OAC.contains("-")){
+                                if(OAC.contains("+") && OAC.contains("-")){
+                                
+                                int fa1 = OAC.indexOf("+");
+                                
+                                int fb1 = OAC.indexOf("-");
+                                if(fa1 < fb1 && fb1 != 0){
+                                    int v = fa1;
+                                    int v1 = fa1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "f1\n";
+                                    OAC.set(fa1, "YA");
+                                }
+                            if(fb1 < fa1 && fb1 != 0){
+                                    int v = fb1;
+                                    int v1 = fb1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "f1\n";
+                                    OAC.set(fb1, "YA");
+                                }
+                            } else {
+                                if(OAC.contains("+")){
+                                    int fa1 = OAC.indexOf("+");
+                                    int v = fa1;
+                                    int v1 = fa1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "ESTo no es una farsa1\n";
+                                    OAC.set(fa1, "YA");
+                                }
+                                if(OAC.contains("-")){
+                                    int fb1 = OAC.indexOf("-");
+                                    int v = fb1;
+                                    int v1 = fb1 + 1;
+                                    String f  = Valor.get(v);
+                                    String f1  = Valor.get(v1);
+                                    CopyO.add(f);
+                                    CopyO.add(f1);
+                                
+                                
+                                    resultado+= f +"    " + f1  + "This is just fantasy1\n";
+                                    OAC.set(fb1, "YA");
+                                }
+                            }
+                                /*
+                                String f  = Valor.get(Valor.size() -1);
+                                resultado+= f + "ff\n";
+                                */
+                            }
+                        }
+                        }
+                        
+                    }
+                    
+                    
                     //int i = Dato_Objeto.size();
                             int l = Dato_Fuente.size();
                             int l2 = Dato_Fuente.size();
@@ -802,6 +970,7 @@ public static void main(String[] args) throws IOException {
                         String s = TD1.get(TD1.size() - 1);
                         OA1.add(s);
                         OA2.add(lexer.lexeme);
+                        OAC.add(lexer.lexeme);
                         if(OA2.contains("*") || OA2.contains("/")){
                             OA3.add("YES");
                         }
