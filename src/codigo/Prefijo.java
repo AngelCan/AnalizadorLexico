@@ -285,10 +285,25 @@ public static void main(String[] args) throws IOException {
                     if(!CopyO.isEmpty()){
                         int n = CopyO.size();
                         Copy.add("=");
-                        if(CopyO.contains("=")){
-                            int t = 1;
+                        for(int me = 0; me < n; me++){
+                            if(CopyO.contains("=")){
+                            if(CopyDO.isEmpty()){
+                                CopyDO.add("T1");
+                                
+                                resultado+= "\n T1" + n + "\n";
+                            } else {
+                                
+                                if(Copy.contains("=")){
+                                    int t = CopyDO.size();
+                                    int t21 = t +1;
+                                    String tem = "T" + t21;
+                                    resultado+= "\n Muuu" + tem + "\n";
+                                    CopyDO.add(tem);
+                                }
+                            }
                             
-                            resultado+= "\n Muuu" + n + "\n";
+                            
+                        }
                         }
                         resultado+= "\n la vaca" + n + "\n";
                     }    
