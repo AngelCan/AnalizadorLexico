@@ -126,6 +126,8 @@ public static void main(String[] args) throws IOException {
                                     
                                     CopyO.add("=");
                                     CopyO.add("*");
+                                    
+                                    
                                 
                                     resultado+= f +"    " + f1  + "f\n";
                                     OAC.set(fa1, "YA");
@@ -279,12 +281,25 @@ public static void main(String[] args) throws IOException {
                             }
                         }
                         }
-                        
+                        // PARA GENERAR EL TEMPORAL CORRECTO
+                    if(!CopyO.isEmpty()){
+                        int n = CopyO.size();
+                        Copy.add("=");
+                        if(CopyO.contains("=")){
+                            int t = 1;
+                            
+                            resultado+= "\n Muuu" + n + "\n";
+                        }
+                        resultado+= "\n la vaca" + n + "\n";
+                    }    
+                    // HASTA AQUÍ CON EL TEMPORAL
+                    
                         //REVISAR EL CONTADOR DE LINEAS
                     if(OAC.contains("YA")){
+                        int k1 = OAC.size();
                         
-                        
-                        if(CopyL.isEmpty()){
+                        for(int i1 = 0; i1 < k1; i1++){
+                            if(CopyL.isEmpty()){
                         CopyL.add("1");
                         String m = CopyL.get(CopyL.size() -1);
                         String m1 = CopyO.get(CopyL.size() -1);
@@ -300,8 +315,12 @@ public static void main(String[] args) throws IOException {
                             
                                     resultado += r1 + "            " +  m+ "\n";
                             }
+                                
                         }
                     }
+                        }
+                        
+                        
                     }
                     // FIN DE REVISAR
                         
