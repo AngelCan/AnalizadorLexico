@@ -7,11 +7,11 @@ Linea   Operador      Dato Objeto     Dato Fuente
 -+23.3*94.685.3/15.394.1
 =m -+23.3*94.685.3/15.394.1
 =m/15.394.1
-1
 /94.194.6    85.3f
 15.3    94.1This is just fantasy
-23.3    94.6f1
+=23.3    94.6f1
 85.3    15.3This is just fantasy1
+1    =
 
 7294.6
 3*94.685.3

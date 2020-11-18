@@ -100,25 +100,7 @@ public static void main(String[] args) throws IOException {
                 
                 if(!Dato_Fuente2.isEmpty()){
                     
-                    //REVISAR EL CONTADOR DE LINEAS
-                    if(CopyL.isEmpty()){
-                        CopyL.add("1");
-                        String m = CopyL.get(CopyL.size() -1);
-                        resultado += m + "\n";
-                    } else {
-                        if(!CopyL.isEmpty()){
-                            int c = CopyO.size();
-                            int cl = CopyL.size();
-                            for(int r = cl; r < c; r++){
-                                int r1 = r + 1;
-                           
-                                String m = CopyL.get(CopyL.size() -1);
-                            
-                                resultado += r1 + "            " +  m+ "\n";
-                            }
-                        }
-                    }
-                    // FIN DE REVISAR
+                    
                     
                     if(!Valor.isEmpty()){
                         String k = Valor.get(Valor.size() -1);
@@ -139,9 +121,11 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fa1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
-                                
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
+                                    
+                                    CopyO.add("=");
+                                    CopyO.add("*");
                                 
                                     resultado+= f +"    " + f1  + "f\n";
                                     OAC.set(fa1, "YA");
@@ -151,10 +135,12 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fb1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
                                 
-                                
+                                    CopyO.add("=");
+                                    CopyO.add("/");
+                                    
                                     resultado+= f +"    " + f1  + "f\n";
                                     OAC.set(fb1, "YA");
                                 }
@@ -165,10 +151,12 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fa1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
                                 
-                                
+                                    CopyO.add("=");
+                                    CopyO.add("*");
+                                    
                                     resultado+= f +"    " + f1  + "ESTo no es una farsa\n";
                                     OAC.set(fa1, "YA");
                                 }
@@ -178,10 +166,12 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fb1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
                                 
-                                
+                                    CopyO.add("=");
+                                    CopyO.add("/");
+                                    
                                     resultado+= f +"    " + f1  + "This is just fantasy\n";
                                     OAC.set(fb1, "YA");
                                 }
@@ -201,8 +191,23 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fa1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
+                                    
+                                    int cd = CopyO.lastIndexOf("*");
+                                    int cd2 = CopyO.lastIndexOf("/");
+                                    int cd3 = CopyO.size() -1;
+                                    if(cd2 == cd3 || cd == cd3){
+                                       CopyO.add("=");
+                                       CopyO.add("+"); 
+                                       String cd4 = CopyO.get(CopyO.size() -2);
+                                       resultado += cd4;
+                                    } else {
+                                        
+                                       CopyO.add("+");
+                                       String cd4 = CopyO.get(CopyO.size() -1);
+                                       resultado += cd4;
+                                    }
                                 
                                 
                                     resultado+= f +"    " + f1  + "f1\n";
@@ -213,10 +218,24 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fb1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
                                 
-                                
+                                    int cd = CopyO.lastIndexOf("*");
+                                    int cd2 = CopyO.lastIndexOf("/");
+                                    int cd3 = CopyO.size() -1;
+                                    if(cd2 == cd3 || cd == cd3){
+                                       CopyO.add("=");
+                                       CopyO.add("-"); 
+                                       String cd4 = CopyO.get(CopyO.size() -1);
+                                       resultado += cd4;
+                                    } else {
+                                        
+                                       CopyO.add("-");
+                                       String cd4 = CopyO.get(CopyO.size() -1);
+                                       resultado += cd4;
+                                    }
+                                    
                                     resultado+= f +"    " + f1  + "f1\n";
                                     OAC.set(fb1, "YA");
                                 }
@@ -227,10 +246,13 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fa1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
-                                
-                                
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
+                                    
+                                    
+                                    
+                                    CopyO.add("+");
+                                    
                                     resultado+= f +"    " + f1  + "ESTo no es una farsa1\n";
                                     OAC.set(fa1, "YA");
                                 }
@@ -240,10 +262,12 @@ public static void main(String[] args) throws IOException {
                                     int v1 = fb1 + 1;
                                     String f  = Valor.get(v);
                                     String f1  = Valor.get(v1);
-                                    CopyO.add(f);
-                                    CopyO.add(f1);
+                                    CopyDF.add(f);
+                                    CopyDF.add(f1);
                                 
-                                
+                                    
+                                    CopyO.add("-");
+                                    
                                     resultado+= f +"    " + f1  + "This is just fantasy1\n";
                                     OAC.set(fb1, "YA");
                                 }
@@ -255,6 +279,31 @@ public static void main(String[] args) throws IOException {
                             }
                         }
                         }
+                        
+                        //REVISAR EL CONTADOR DE LINEAS
+                    if(OAC.contains("YA")){
+                        
+                        
+                        if(CopyL.isEmpty()){
+                        CopyL.add("1");
+                        String m = CopyL.get(CopyL.size() -1);
+                        String m1 = CopyO.get(CopyL.size() -1);
+                        resultado += m + "    " + m1 + "\n";
+                        } else {
+                            if(!CopyL.isEmpty()){
+                                int c = CopyO.size();
+                                int cl = CopyL.size();
+                                for(int r = cl; r < c; r++){
+                                    int r1 = r + 1;
+                           
+                                    String m = CopyO.get(CopyL.size() -1);
+                            
+                                    resultado += r1 + "            " +  m+ "\n";
+                            }
+                        }
+                    }
+                    }
+                    // FIN DE REVISAR
                         
                     }
                     
