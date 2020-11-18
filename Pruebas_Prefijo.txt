@@ -14,19 +14,21 @@ Linea   Operador      Dato Objeto     Dato Fuente
 
  T17
 
- MuuuT2
+T2
 
- MuuuT3
+T2
 
- MuuuT4
+T3
 
- MuuuT5
+T3
 
- MuuuT6
+T3
 
- MuuuT7
+T4
 
- la vaca7
+T4
+
+T4
 1           =     T1         94.6
 2            *                85.3
 3            =                15.3

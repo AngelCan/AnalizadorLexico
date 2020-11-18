@@ -293,19 +293,27 @@ public static void main(String[] args) throws IOException {
                                 resultado+= "\n T1" + n + "\n";
                             } else {
                                 
-                                if(Copy.contains("=")){
+                                String ka = CopyO.get(me);
+                                if(ka == "="){
                                     int t = CopyDO.size();
                                     int t21 = t +1;
                                     String tem = "T" + t21;
-                                    resultado+= "\n Muuu" + tem + "\n";
+                                    resultado+= "\n" + tem + "\n";
                                     CopyDO.add(tem);
+                                    
                                 }
+                                    int t = CopyDO.size();
+                                    int t21 = t +1;
+                                    String tem = "T" + t21;
+                                    resultado+= "\n" + tem + "\n";
+                                    
+                                
                             }
                             
                             
                         }
                         }
-                        resultado+= "\n la vaca" + n + "\n";
+                        
                     }    
                     // HASTA AQUÍ CON EL TEMPORAL
                     
