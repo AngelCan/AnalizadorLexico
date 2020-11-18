@@ -318,19 +318,34 @@ public static void main(String[] args) throws IOException {
                         CopyL.add("1");
                         String m = CopyL.get(CopyL.size() -1);
                         String m1 = CopyO.get(CopyL.size() -1);
-                        resultado += m + "    " + m1 + "\n";
+                        String m2 = CopyDF.get(CopyL.size()-1);
+                        resultado += m + "           " + m1 +"     T1         " + m2  + "\n";
                         } else {
                             if(!CopyL.isEmpty()){
-                                int c = CopyO.size();
+                                
+                                /*
                                 int cl = CopyL.size();
-                                for(int r = cl; r < c; r++){
-                                    int r1 = r + 1;
+                                int oac = OAC.size();
+                                if(cl != oac){
+                                    int r1 = cl + 1;
                            
                                     String m = CopyO.get(CopyL.size() -1);
                             
                                     resultado += r1 + "            " +  m+ "\n";
-                            }
+                                    CopyL.add(m);
+                                }
+                                */
                                 
+                                int c = CopyO.size();
+                                int cl = CopyL.size();
+                                for(int r = cl; r < c; r++){
+                                    int r1 = r + 1;
+                                    String m1 = CopyDF.get(r);
+                                    String m = CopyO.get(r);
+                            
+                                    resultado += r1 + "            " +  m + "                " +m1 +"\n";
+                            }
+                               
                         }
                     }
                         }
