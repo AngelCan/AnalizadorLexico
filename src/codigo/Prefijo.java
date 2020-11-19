@@ -128,8 +128,9 @@ public static void main(String[] args) throws IOException {
                                     CopyO.add("*");
                                     
                                     
+                                    Copy.add(f);
                                 
-                                    resultado+= f +"    " + f1  + "f\n";
+                                    //resultado+= f +"    " + f1  + "f\n";
                                     OAC.set(fa1, "YA");
                                 }
                             if(fb1 < fa1 && fb1 != 0){
@@ -143,7 +144,7 @@ public static void main(String[] args) throws IOException {
                                     CopyO.add("=");
                                     CopyO.add("/");
                                     
-                                    resultado+= f +"    " + f1  + "f\n";
+                                    //resultado+= f +"    " + f1  + "f\n";
                                     OAC.set(fb1, "YA");
                                 }
                             } else {
@@ -159,7 +160,7 @@ public static void main(String[] args) throws IOException {
                                     CopyO.add("=");
                                     CopyO.add("*");
                                     
-                                    resultado+= f +"    " + f1  + "ESTo no es una farsa\n";
+                                    //resultado+= f +"    " + f1  + "ESTo no es una farsa\n";
                                     OAC.set(fa1, "YA");
                                 }
                                 if(OAC.contains("/")){
@@ -174,7 +175,7 @@ public static void main(String[] args) throws IOException {
                                     CopyO.add("=");
                                     CopyO.add("/");
                                     
-                                    resultado+= f +"    " + f1  + "This is just fantasy\n";
+                                    //resultado+= f +"    " + f1  + "This is just fantasy\n";
                                     OAC.set(fb1, "YA");
                                 }
                             }
@@ -203,16 +204,16 @@ public static void main(String[] args) throws IOException {
                                        CopyO.add("=");
                                        CopyO.add("+"); 
                                        String cd4 = CopyO.get(CopyO.size() -2);
-                                       resultado += cd4;
+                                       //resultado += cd4;
                                     } else {
                                         
                                        CopyO.add("+");
                                        String cd4 = CopyO.get(CopyO.size() -1);
-                                       resultado += cd4;
+                                       //resultado += cd4;
                                     }
                                 
                                 
-                                    resultado+= f +"    " + f1  + "f1\n";
+                                    //resultado+= f +"    " + f1  + "f1\n";
                                     OAC.set(fa1, "YA");
                                 }
                             if(fb1 < fa1 && fb1 != 0){
@@ -230,15 +231,15 @@ public static void main(String[] args) throws IOException {
                                        CopyO.add("=");
                                        CopyO.add("-"); 
                                        String cd4 = CopyO.get(CopyO.size() -1);
-                                       resultado += cd4;
+                                       //resultado += cd4;
                                     } else {
                                         
                                        CopyO.add("-");
                                        String cd4 = CopyO.get(CopyO.size() -1);
-                                       resultado += cd4;
+                                       //resultado += cd4;
                                     }
                                     
-                                    resultado+= f +"    " + f1  + "f1\n";
+                                    //resultado+= f +"    " + f1  + "f1\n";
                                     OAC.set(fb1, "YA");
                                 }
                             } else {
@@ -255,7 +256,7 @@ public static void main(String[] args) throws IOException {
                                     
                                     CopyO.add("+");
                                     
-                                    resultado+= f +"    " + f1  + "ESTo no es una farsa1\n";
+                                    //resultado+= f +"    " + f1  + "ESTo no es una farsa1\n";
                                     OAC.set(fa1, "YA");
                                 }
                                 if(OAC.contains("-")){
@@ -270,7 +271,7 @@ public static void main(String[] args) throws IOException {
                                     
                                     CopyO.add("-");
                                     
-                                    resultado+= f +"    " + f1  + "This is just fantasy1\n";
+                                    //resultado+= f +"    " + f1  + "This is just fantasy1\n";
                                     OAC.set(fb1, "YA");
                                 }
                             }
@@ -284,28 +285,39 @@ public static void main(String[] args) throws IOException {
                         // PARA GENERAR EL TEMPORAL CORRECTO
                     if(!CopyO.isEmpty()){
                         int n = CopyO.size();
-                        Copy.add("=");
+                        CopyO.add("=");
                         for(int me = 0; me < n; me++){
                             if(CopyO.contains("=")){
                             if(CopyDO.isEmpty()){
                                 CopyDO.add("T1");
                                 
-                                resultado+= "\n T1" + n + "\n";
+                                //resultado+= "\n T1" + n + "\n";
                             } else {
                                 
-                                if(Copy.contains("=")){
+                                String ka = CopyO.get(me);
+                                if(ka == "="){
                                     int t = CopyDO.size();
                                     int t21 = t +1;
                                     String tem = "T" + t21;
-                                    resultado+= "\n Muuu" + tem + "\n";
+                                    //resultado+= "\n" + tem + "\n";
                                     CopyDO.add(tem);
+                                    Copy.add(tem);
+                                    
                                 }
+                                    int t = CopyDO.size();
+                                    int t21 = t +1;
+                                    String tem = "T" + t21;
+                                    //resultado+= "\n" + tem + "\n";
+                                    String tem1 = CopyDO.get(CopyDO.size() -1);
+                                    Copy.add(tem1);
+                                    
+                                
                             }
                             
                             
                         }
                         }
-                        resultado+= "\n la vaca" + n + "\n";
+                        
                     }    
                     // HASTA AQUÍ CON EL TEMPORAL
                     
@@ -323,18 +335,7 @@ public static void main(String[] args) throws IOException {
                         } else {
                             if(!CopyL.isEmpty()){
                                 
-                                /*
-                                int cl = CopyL.size();
-                                int oac = OAC.size();
-                                if(cl != oac){
-                                    int r1 = cl + 1;
-                           
-                                    String m = CopyO.get(CopyL.size() -1);
-                            
-                                    resultado += r1 + "            " +  m+ "\n";
-                                    CopyL.add(m);
-                                }
-                                */
+                               
                                 
                                 int c = CopyO.size();
                                 int cl = CopyL.size();
@@ -342,8 +343,11 @@ public static void main(String[] args) throws IOException {
                                     int r1 = r + 1;
                                     String m1 = CopyDF.get(r);
                                     String m = CopyO.get(r);
+                                    
+                                    
+                                    String w = Copy.get(r);
                             
-                                    resultado += r1 + "            " +  m + "                " +m1 +"\n";
+                                    resultado += r1 + "            " +  m + "                "+ w +"                " +m1 +"\n";
                             }
                                
                         }
@@ -372,7 +376,7 @@ public static void main(String[] args) throws IOException {
                                 Dato_Objeto.set(s, s2);
                                 //EL NUMERO QUE MUESTRA ES EL LUGAR DEL ARREGLO, NO DE LA TABLA, PARA TENER EL DE LA TABLA ES EL NUMERO
                                 //MOSTRADO + 1
-                                resultado+= "\n" + s;
+                                //resultado+= "\n" + s;
                                 
                                 
                                 
@@ -384,14 +388,14 @@ public static void main(String[] args) throws IOException {
                                     int w = Operador2.size();
                                     String as = Operador2.get(Operador2.size() -1);
                                     String z = Dato_Fuente_ConMD.get(w);
-                                    resultado += w + z + "\n";
+                                    //resultado += w + z + "\n";
                                 }
                                 if(Operador.contains("/")){
                                     Operador2.add("/");
                                         String as = Operador2.get(Operador2.size() -1);
                                         int w = Operador2.size();
                                         String z = Dato_Fuente_ConMD.get(w);
-                                        resultado += w + z + "\n";
+                                        //resultado += w + z + "\n";
                             }
                                 if(Operador.contains("+")){
                                     Operador2.add("+");
@@ -399,7 +403,7 @@ public static void main(String[] args) throws IOException {
                                     
                                     int w = Operador2.size();    
                                     String z = Dato_Fuente_ConMD.get(w);
-                                    resultado += w + z + "\n";
+                                    //resultado += w + z + "\n";
                             }
                                 if(Operador.contains("-")){
                                     Operador2.add("-");
@@ -408,11 +412,11 @@ public static void main(String[] args) throws IOException {
                                     
                                     int w = Operador2.size();    
                                     String z = Dato_Fuente_ConMD.get(w);
-                                    resultado += w + z + "\n";
+                                    //resultado += w + z + "\n";
                             }
                             
                                 int o = Operador2.size();
-                                resultado += o;
+                                //resultado += o;
                                 for(int p = 0; p < o; p++){
                                     
                                     
@@ -429,10 +433,10 @@ public static void main(String[] args) throws IOException {
                                                 String r45 = Operador3.get(p);
                                                 String r47 = Dato_Fuente_ConMD.get(ed);
                                                 String r48 = Dato_Fuente_ConMD.get(p);
-                                               resultado += r43 + r45 + "Hello" + r47 + "Hello" + r48 + "\n"; 
+                                               //resultado += r43 + r45 + "Hello" + r47 + "Hello" + r48 + "\n"; 
                                             } else {
                                                 Operador3.add(e);
-                                                resultado += "Hello1";
+                                                //resultado += "Hello1";
                                             }
                                             
                                         }
@@ -446,7 +450,7 @@ public static void main(String[] args) throws IOException {
                                     String as = Operador3.get(Operador3.size() -1);
                                     String asa = Dato_Fuente_ConMD.get(Operador3.size() -1);
                                     
-                                        resultado += as + "Flag32" + asa;
+                                        //resultado += as + "Flag32" + asa;
                                 }
                                  if(Operador2.contains("-")){
                                     Operador3.add("-");
@@ -454,14 +458,14 @@ public static void main(String[] args) throws IOException {
                                     
                                     String asa = Dato_Fuente_ConMD.get(Operador3.size() -1);    
                                     
-                                    resultado += as + "Flag32" + asa;
+                                    //resultado += as + "Flag32" + asa;
                                 } 
                             }
                         
                                 int c = Dato_Fuente_ConMD.size();
                                 int co = Operador3.size();
                                 
-                                resultado += "\ncomparacion" + c + co;
+                                //resultado += "\ncomparacion" + c + co;
                                 
                         if(Dato_Fuente_ConMD.size() == Operador3.size()){
                            if(Linea2.isEmpty()){
@@ -506,70 +510,6 @@ public static void main(String[] args) throws IOException {
                         }
                                 
                             }
-                            /*
-                               if(Operador.contains("*") || Operador.contains("/")){
-                                    int sa = Operador.indexOf("*");
-                                    int sb = Operador.indexOf("/");
-                                    int sc = sa - sb;
-                                    String sd = "T2";
-                                
-                                
-                                
-                                //for(int n = i; n < l2; n++){
-                                    String f1 = Dato_Fuente.get(i);
-                                    String f2 = Operador.get(i);
-                                    Inter.add(f1);
-                                    Inter.add(f2);
-                                    int pru = Inter.size();
-                                resultado += "\n" + pru;
-                                
-                                
-                                if(sc != -1 && sc != 1){
-                                    if(sa < sb){
-                                        int se = sa -1;
-                                        String x  = Dato_Fuente2.get(0);
-                                        int x1 = sa + 1;
-                                       Dato_Objeto.set(sa, sd);
-                                       Dato_Objeto.set(se, sd);
-                                       Dato_Fuente.set(sa, x);
-                                       Dato_Fuente.set(x1, sd);
-                                       
-                                       Operador2.add("*");
-                                       String as = Operador2.get(Operador2.size() -1);
-                                       
-                                       //Operador.add("=");
-                                       //Dato_Objeto.add(sd);
-                                       //Dato_Fuente.add(sd);
-                                       resultado += sc +  as +"Flag1" + x + "\n"; 
-                                    } 
-                                    else {
-                                        int se = sb -1;
-                                        String x  = Dato_Fuente2.get(0);
-                                        int x1 = sb + 1;
-                                        Dato_Objeto.set(sb, sd);
-                                        Dato_Objeto.set(se, sd);
-                                        Dato_Fuente.set(sb, x);
-                                        Dato_Fuente.set(x1, sd);
-                                        
-                                        Operador2.add("/");
-                                        String as = Operador2.get(Operador2.size() -1);
-                                        
-                                        resultado += sc + as + "Flag2";
-                                    }
-                                    
-                                //}
-                                
-                                }    
-                                if(Operador.contains("-") || Operador.contains("+")){
-                                        
-                                        String a = Operador.get(i);
-                                        String b = Dato_Objeto.get(i);
-                                        String c = Dato_Fuente.get(i);
-                                        resultado+= a + b + c +  "Flagjack";
-                                    }
-                                //resultado += "\n" + sa + sb +"Flag";
-                            } 
-                            */
                             
                     
                     
