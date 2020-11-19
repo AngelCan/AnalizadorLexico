@@ -128,6 +128,7 @@ public static void main(String[] args) throws IOException {
                                     CopyO.add("*");
                                     
                                     
+                                    Copy.add(f);
                                 
                                     resultado+= f +"    " + f1  + "f\n";
                                     OAC.set(fa1, "YA");
@@ -284,7 +285,7 @@ public static void main(String[] args) throws IOException {
                         // PARA GENERAR EL TEMPORAL CORRECTO
                     if(!CopyO.isEmpty()){
                         int n = CopyO.size();
-                        Copy.add("=");
+                        CopyO.add("=");
                         for(int me = 0; me < n; me++){
                             if(CopyO.contains("=")){
                             if(CopyDO.isEmpty()){
@@ -300,12 +301,15 @@ public static void main(String[] args) throws IOException {
                                     String tem = "T" + t21;
                                     resultado+= "\n" + tem + "\n";
                                     CopyDO.add(tem);
+                                    Copy.add(tem);
                                     
                                 }
                                     int t = CopyDO.size();
                                     int t21 = t +1;
                                     String tem = "T" + t21;
                                     resultado+= "\n" + tem + "\n";
+                                    String tem1 = CopyDO.get(CopyDO.size() -1);
+                                    Copy.add(tem1);
                                     
                                 
                             }
@@ -350,8 +354,35 @@ public static void main(String[] args) throws IOException {
                                     int r1 = r + 1;
                                     String m1 = CopyDF.get(r);
                                     String m = CopyO.get(r);
+                                    
+                                    /*
+                                    int w = CopyDO.size();
+                                    int z = 0;
+                                    if(z != w){
+                                        if(m == "="){
+                                            int z1 = z +1;
+                                            String v = CopyDO.get(z);
+                                            resultado+= v + "Entro en Todo\n";
+                                            
+                                        } else {
+                                            
+                                            resultado+="Entro en Todo\n";
+                                        }
+                                    }
+                                    */    
+                                    /*
+                                    int z = 0;
+                                    String w = CopyDO.get(z);
+                                    if(m == "="){
+                                        int z1 = z +1;
+                                        String w1 = CopyDO.get(z1);
+                                        resultado+= w1 + "\n";
+                                        
+                                    } 
+                                    */
+                                    String w = Copy.get(r);
                             
-                                    resultado += r1 + "            " +  m + "                " +m1 +"\n";
+                                    resultado += r1 + "            " +  m + "                "+ w +"                " +m1 +"\n";
                             }
                                
                         }
