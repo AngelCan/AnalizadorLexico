@@ -106,7 +106,7 @@ public static void main(String[] args) throws IOException {
                         String k = Valor.get(Valor.size() -1);
                         String j = OAC.get(OAC.size() -1);
                         
-                        resultado += j + k;  
+                        //resultado += j + k;  
                         
                         int oa = OAC.size();
                         for(int oa1 = 0; oa1 < oa; oa1++){
@@ -310,7 +310,18 @@ public static void main(String[] args) throws IOException {
                                     //resultado+= "\n" + tem + "\n";
                                     String tem1 = CopyDO.get(CopyDO.size() -1);
                                     Copy.add(tem1);
-                                    
+                                if(Dato_ObjetoAux.contains("!=") || Dato_ObjetoAux.contains("==")){
+                                    int prue = CopyDO.size();
+                                    for(int jj = 0; jj < prue; jj++){
+                                        String prueb = CopyDO.get(jj);
+                                        if(prueb == "TR1"){
+                                            
+                                            resultado+="zzz";
+                                        }
+                                    }
+                                    Copy.add("True");
+                                    Copy.add("false");
+                                }    
                                 
                             }
                             
@@ -344,12 +355,36 @@ public static void main(String[] args) throws IOException {
                                     String m1 = CopyDF.get(r);
                                     String m = CopyO.get(r);
                                     
-                                    
+                                      //VOLVER A COLOCAR CUANDO OL Y OR FUNCIONEN
                                     String w = Copy.get(r);
                             
                                     resultado += r1 + "            " +  m + "                "+ w +"                " +m1 +"\n";
+                                    
+                                    
+                            
+                                    //resultado += r1 + "            " +  m + "                "+ "                " +m1 +"\n";
+                                    
+                                    
                             }
-                               
+                                
+                          if(!Dato_ObjetoAux.isEmpty()){
+                                int h2 = CopyL.size();
+                                String h1 = CopyL.get(CopyL.size() -1);
+                                
+                                String m = Prefijo.get(Prefijo.size() - 1);
+                                String l = ID1.get(ID1.size() - 1);
+                                //String o = OR1.get(OR1.size() - 1);
+                                
+                                CopyO.add("=");
+                                //CopyO.add(o);
+                                CopyDF.add(m);
+                                CopyDF.add(l);
+                                
+                                
+                        
+                                resultado+=  "entre" + m + l;
+                    }       
+                                
                         }
                     }
                         }
@@ -357,7 +392,7 @@ public static void main(String[] args) throws IOException {
                         
                     }
                     // FIN DE REVISAR
-                        
+                       
                     }
                     
                     
@@ -510,7 +545,7 @@ public static void main(String[] args) throws IOException {
                         }
                                 
                             }
-                            
+                           
                     
                     
                 } else{
@@ -532,6 +567,9 @@ public static void main(String[] args) throws IOException {
                             }
                             
                         }
+                
+                
+                
                 if(Dato_Objeto.size() == Dato_Fuente.size() && Dato_Fuente.size() == Operador.size()){
                            if(Linea.isEmpty()){
                                Linea.add("1");
@@ -563,7 +601,11 @@ public static void main(String[] args) throws IOException {
                                         resultado+= "\n" + m + "          " + m1;
                                         Linea.add("+1");
                                     }
-                               
+                           //Revisar luego
+                            if(!Dato_ObjetoAux.isEmpty()){
+                                String h = Linea.get(Linea.size() -1);
+                                 resultado+= h + "entre";
+                            }   
                            
                                
                            }
@@ -770,12 +812,20 @@ public static void main(String[] args) throws IOException {
                                     String o = OR1.get(OR1.size() - 1);
                                     OL1.add(o + m + l );
                                     
-                                    //VERIFICAR SI FUNCIONA
-                                    Dato_Fuente.add(m);
-                                    Dato_Fuente.add(l);
-                                    Operador.add("=");
-                                    Operador.add(o);
-                                    //HASTA AQUI
+                                    if(!Dato_Fuente2.isEmpty()){
+                                    Dato_ObjetoAux.add("=");
+                                    Dato_ObjetoAux.add(o);
+                                    Dato_ObjetoAux.add(m);
+                                    Dato_ObjetoAux.add(l);
+                                    //CopyDO.add("TR1");
+                                    //CopyDO.add("TR1");
+                                
+                                    }
+                                        Dato_Objeto.add(o);
+                                        Dato_Fuente.add(m);
+                                        Dato_Fuente.add(l);
+                                        //Dato_Objeto.add("TR1");
+                                        //Dato_Objeto.add("TR1");
                                     
                                     String c = OL1.get(OL1.size() - 1);
                                     resultado+= c + "\n";
@@ -1331,18 +1381,23 @@ public static void main(String[] args) throws IOException {
                     case OL:
                         if(!OL1.isEmpty()){
                             OL1.add(lexer.lexeme);
+                            
+                            Operador.add("=");
+                            Operador.add(lexer.lexeme);
+                            
                             int n = OL1.size();
                             if(n == 2){
                                 String m = OL1.get(OL1.size() - 1);
                                 String m2 = OL1.get(OL1.size() - 2);
                                 OL1.add(m + m2);
                                 
-                                //Dato_Fuente.add(m);
-                                //Dato_Fuente.add(m2);
                                 
                                 
-                                //resultado+= m + "Flag\n"; 
-                                resultado+= m + m2 + "\n";
+                                String m1 = Dato_Fuente.get(Dato_Fuente.size() - 1);
+                                String m21 = Dato_Fuente.get(Dato_Fuente.size() - 2);
+                                
+                                resultado+= "\n" +m1 + m21 + "DoubleYAi\n"; 
+                                //resultado+= m + m2 + "\n";
                             }
                             
                         }
@@ -1351,6 +1406,8 @@ public static void main(String[] args) throws IOException {
                     case OR:
                         
                         OR1.add(lexer.lexeme);
+                        //Dato_ObjetoAux.add(lexer.lexeme);
+                        resultado += "YEI";
                         
                         break;
                     case DEL:
