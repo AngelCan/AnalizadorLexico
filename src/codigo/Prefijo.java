@@ -342,7 +342,7 @@ public static void main(String[] args) throws IOException {
                         String m = CopyL.get(CopyL.size() -1);
                         String m1 = CopyO.get(CopyL.size() -1);
                         String m2 = CopyDF.get(CopyL.size()-1);
-                        resultado += m + "           " + m1 +"     T1         " + m2  + "\n";
+                        resultado += m + "           " + m1 +"            T1                  " + m2  + "\n";
                         } else {
                             if(!CopyL.isEmpty()){
                                 
@@ -356,13 +356,13 @@ public static void main(String[] args) throws IOException {
                                     String m = CopyO.get(r);
                                     
                                       //VOLVER A COLOCAR CUANDO OL Y OR FUNCIONEN
-                                    String w = Copy.get(r);
+                                    //String w = Copy.get(r);
                             
-                                    resultado += r1 + "            " +  m + "                "+ w +"                " +m1 +"\n";
+                                    //resultado += r1 + "            " +  m + "                "+ w +"                " +m1 +"\n";
                                     
                                     
                             
-                                    //resultado += r1 + "            " +  m + "                "+ "                " +m1 +"\n";
+                                    resultado += r1 + "            " +  m + "                "+ "                " +m1 +"\n";
                                     
                                     
                             }

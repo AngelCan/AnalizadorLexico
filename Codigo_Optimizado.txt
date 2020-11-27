@@ -1,0 +1,15 @@
+TOKEN ERROR            LEXEMA      LINEA       DESCRIPCION
+double  m ;
+
+int  p =13+72;
+
+int  e =15
+;
+
+double  s ;
+
+;
+
+;
+
+FIN
